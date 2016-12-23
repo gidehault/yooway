@@ -1,0 +1,41 @@
+/**
+ * style.css
+ * Contain style of yooway proto
+ */
+
+/**
+ * Import Font
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/**
+ * General
+ */
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+/**
+ * Container
+ */
+
+.container {
+	width: 768px;
+	margin: auto;
+}
+
+/**
+ * Til
+ */
+
+.til {
+ width: 246px;
+ height: 331px;
+ border-style: solid;
+}
+
+.row .til{
+	display: inline-block;
+}
