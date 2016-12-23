@@ -13,6 +13,7 @@ $(document).ready(function(){
 				console.log(til + 'va à droite');
 			}
 		
-    }
+    },
+    revert: true
 	});
 });
