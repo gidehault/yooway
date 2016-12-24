@@ -1,3 +1,6 @@
+<?php
+include '../src/scenario.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
