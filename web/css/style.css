@@ -50,6 +50,10 @@ body {
 
 }
 
+.ontop{
+    z-index:1;
+}
+
 /**
  * Bulle prix
  */
@@ -93,3 +97,29 @@ Til question
     position: relative;
     left: 25px;
 }
+
+/**
+Til Select
+ */
+
+.select {
+    font-size : 2em;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.select ul{
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.select a{
+    text-decoration: none;
+
+}
+
+.select li{
+    margin : 30px 0 30px 0;
+}
+

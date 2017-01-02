@@ -14,7 +14,7 @@
 
 
     <div id="row-1" class="row">
-        <div id="til-0" class="til">
+        <div id="til-0" class="til draggable ui-widget-content">
             <img src="img/images-1.jpg" alt="">
             <div class="price">
                 <p>21,00 €</p>
@@ -28,7 +28,7 @@
                 Je n'aime pas
             </div>
         </div>
-        <div id="til-1" class="til">
+        <div id="til-1" class="til draggable ui-widget-content">
             <img src="img/images-2.jpg" alt="">
             <div class="price">
                 <p>21,00 €</p>
@@ -42,25 +42,20 @@
                 Je n'aime pas
             </div>
         </div>
-        <div id="til-2" class="til">
-            <img src="img/images-3.jpg" alt="">
-            <div class="price">
-                <p>21,00 €</p>
-            </div>
-            <div class="answer like">
-                <img src="img/left.png" alt="to the left">
-                J'aime
-            </div>
-            <div class="answer dislike">
-                <img src="img/right.png" alt="to the right">
-                Je n'aime pas
-            </div>
+        <div id="til-2" class="til select">
+            <ul id="list">
+                <li><a href="">Bordeaux</a></li>
+                <li><a href="">Côtes du Rhône</a></li>
+                <li><a href="">Côtes d'Auvergne</a></li>
+                <li><a href="">Alsace</a></li>
+                <li><a href="">Bourgogne</a></li>
+            </ul>
         </div>
     </div>
 
 
     <div id="row-2" class="row">
-        <div id="til-3" class="til">
+        <div id="til-3" class="til draggable ui-widget-content">
             <img src="img/images.jpg" alt="">
             <div class="price">
                 <p>21,00 €</p>
@@ -74,7 +69,7 @@
                 Je n'aime pas
             </div>
         </div>
-        <div id="til-4" class="til">
+        <div id="til-4" class="til draggable ui-widget-content">
             <img src="img/imgres-1.jpg" alt="">
             <div class="price">
                 <p>21,00 €</p>
@@ -89,7 +84,7 @@
             </div>
         </div>
 
-        <div id="til-5" class="til">
+        <div id="til-5" class="til draggable ui-widget-content">
             <img src="img/imgres-2.jpg" alt="">
             <div class="price">
                 <p>21,00 €</p>
@@ -106,7 +101,7 @@
     </div>
 
     <div id="row-3" class="row">
-        <div id="til-6" class="til">
+        <div id="til-6" class="til draggable ui-widget-content">
             <img src="img/imgres.jpg" alt="">
             <div class="price">
                 <p>21,00 €</p>
@@ -120,7 +115,7 @@
                 Je n'aime pas
             </div>
         </div>
-        <div id="til-7" class="til yooway-question">
+        <div id="til-7" class="til yooway-question draggable ui-widget-content">
             <p>Vin à boire maintenant?</p>
             <div class="answer like">
                 <img src="img/left.png" alt="to the left">
@@ -131,7 +126,7 @@
                 Non
             </div>
         </div>
-        <div id="til-8" class="til">
+        <div id="til-8" class="til draggable ui-widget-content">
             <img src="img/images-1.jpg" alt="">
             <div class="price">
                 <p>21,00 €</p>
