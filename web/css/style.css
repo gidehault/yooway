@@ -54,8 +54,42 @@ body {
  * Bulle prix
  */
 .price{
-    width: unset;
+    position: absolute;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    border-style: solid;
-    border-width: thin;
+    left: 180px;
+    bottom: 265px;
+    background-color: #fddfdf;
+}
+
+.price p{
+    vertical-align: middle;
+    padding-top: 4px;
+}
+
+/**
+Til question
+ */
+
+.answer{
+    position: absolute;
+    bottom: 30px;
+
+}
+
+.answer img{
+    display: block;
+}
+.like{
+    left: 30px;
+}
+
+.dislike{
+    right: 30px;
+}
+
+.dislike img{
+    position: relative;
+    left: 25px;
 }
