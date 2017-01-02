@@ -4,11 +4,11 @@
 
 
 var Connect = {
-    ajax: function (question, answer) {
+    ajax: function (tilId, answer) {
         $.ajax({
             method: 'POST',
-            url: 'index.php',
-            data: {question: question, answer: answer}
+            url: 'scenario.php',
+            data: {tilId: tilId, answer: answer}
         })
     }
 }
@@ -31,8 +31,8 @@ $(document).ready(function () {
             }
 
         },
-        revert: true,
         stop: function(){
+            $(this).fadeOut('fast');
             Connect.ajax(tilId, answer);
         }
     });

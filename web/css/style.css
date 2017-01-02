@@ -6,7 +6,6 @@
 /**
  * Import Font
  */
-
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 /**
@@ -14,7 +13,7 @@
  */
 
 body {
-	font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /**
@@ -22,8 +21,8 @@ body {
  */
 
 .container {
-	width: 768px;
-	margin: auto;
+    width: 768px;
+    margin: auto;
 }
 
 /**
@@ -31,11 +30,32 @@ body {
  */
 
 .til {
- width: 246px;
- height: 331px;
- border-style: solid;
+    width: 246px;
+    height: 331px;
+    -webkit-box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin: 2px;
+
 }
 
-.row .til{
-	display: inline-block;
+.til p {
+    padding-top: 50%;
+}
+
+.row .til {
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+/**
+ * Bulle prix
+ */
+.price{
+    width: unset;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: thin;
 }
