@@ -2,9 +2,21 @@
  * yooway.js
  */
 
+class Colorization
+{
 
-var Connect = {
-    ajax: function (tilId, answer) {
+    static left (tilId){
+        console.log('id de la tuile :' + tilId);
+        //place upside the rhe tilId
+        $('#' + tilId).append("<div id='calque'></div>");
+//color the background of calque div
+        $('#calque').addClass('left').fadeIn('fast');
+    }
+}
+
+class Connect
+{
+     static ajax (tilId, answer) {
         $.ajax({
             method: 'POST',
             url: 'scenario.php',
@@ -13,9 +25,12 @@ var Connect = {
     }
 }
 
+let tilId;
+let answer;
+
+
 $(document).ready(function () {
-    var tilId;
-    var answer;
+
     $('.til').draggable({
         axis: 'x',
         drag: function (event, ui) {
@@ -26,6 +41,9 @@ $(document).ready(function () {
             if (ui.originalPosition.left > ui.position.left) {
                 console.log(tilId + ' va à gauche');
                 answer = 'left';
+                //add green color on the til
+                //TODO à terminer et à améliorer
+                Colorization.left(tilId);
 
             } else {
                 console.log(tilId + 'va à droite');
@@ -39,6 +57,8 @@ $(document).ready(function () {
         }
     });
 
+
+    //Liste
     $('#list').draggable({
         axis: 'y'
     })

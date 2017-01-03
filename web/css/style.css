@@ -50,9 +50,27 @@ body {
 
 }
 
+/*
+On select design
+ */
+
 .ontop{
     z-index:1;
+
 }
+
+#calque{
+    width: 246px;
+    height: 331px;
+    z-index: 2;
+
+}
+
+.left{
+    background: green;
+    opacity: 0.5;
+}
+
 
 /**
  * Bulle prix
