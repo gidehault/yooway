@@ -59,7 +59,10 @@ On select design
 
 }
 
-#calque{
+.calque{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 246px;
     height: 331px;
     z-index: 2;
@@ -67,7 +70,12 @@ On select design
 }
 
 .left{
-    background: green;
+    background: #93ff7a;
+    opacity: 0.5;
+}
+
+.right{
+    background: red;
     opacity: 0.5;
 }
 
