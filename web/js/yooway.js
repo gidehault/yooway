@@ -4,14 +4,26 @@
 
 class Move {
 
-    static coloration(tilId, way) {
+
+
+
+    coloration(tilId, way) {
+
+
 
         let tilIdElmt = $('#' + tilId);
+        //debug
         console.log('id de la tuile :' + tilId);
-        //plif ()
+        //si la tuile est déjà coloré lors d'un changement de direction on efface
+        // le calque et on laisse faire le reste
+        if (this.way !== way){
+            $('.calque').remove();
+        }
+
         if (!$('#' + tilId + '> div').hasClass('calque')){
             tilIdElmt.append("<div class='calque'></div>");
             //color the background of calque div
+            this.way = way;
             $('.calque').addClass(way).fadeIn('slow');
         }
 
@@ -40,6 +52,7 @@ $(document).ready(function () {
     $('.til').draggable({
         axis: 'x',
         drag: function (event, ui) {
+            move = new Move();
             //catch name of til
             tilId = $(this).attr('id');
             //Met la tuile au dessus
@@ -50,12 +63,12 @@ $(document).ready(function () {
                 answer = 'left';
                 //add green color on the til
 
-                Move.coloration(tilId, 'left');
+                move.coloration(tilId, 'left');
 
             } else {
                 console.log(tilId + 'va à droite');
                 answer = 'right';
-                Move.coloration(tilId, 'right');
+                move.coloration(tilId, 'right');
 
             }
 
