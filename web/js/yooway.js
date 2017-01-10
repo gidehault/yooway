@@ -37,7 +37,10 @@ class Connect {
         $.ajax({
             method: 'POST',
             url: 'scenario.php',
-            data: {tilId: tilId, answer: answer}
+            data: {tilId: tilId, answer: answer},
+            success: function (response) {
+                console.log(response);
+            }
         })
     }
 }
@@ -52,7 +55,7 @@ $(document).ready(function () {
     $('.til').draggable({
         axis: 'x',
         drag: function (event, ui) {
-            move = new Move();
+            let move = new Move();
             //catch name of til
             tilId = $(this).attr('id');
             //Met la tuile au dessus
@@ -75,6 +78,7 @@ $(document).ready(function () {
         },
         stop: function () {
             Connect.ajax(tilId, answer);
+            $('#' + tilId).fadeOut('slow');
         }
     });
 
