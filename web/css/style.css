@@ -2,7 +2,6 @@
  * style.css
  * Contain style of yooway proto
  */
-
 /**
  * Import Font
  */
@@ -54,12 +53,12 @@ body {
 On select design
  */
 
-.ontop{
-    z-index:1;
+.ontop {
+    z-index: 1;
 
 }
 
-.calque{
+.calque {
     position: absolute;
     top: 0;
     left: 0;
@@ -69,21 +68,20 @@ On select design
 
 }
 
-.left{
+.left {
     background: #93ff7a;
     opacity: 0.5;
 }
 
-.right{
+.right {
     background: red;
     opacity: 0.5;
 }
 
-
 /**
  * Bulle prix
  */
-.price{
+.price {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -93,7 +91,7 @@ On select design
     background-color: #fddfdf;
 }
 
-.price p{
+.price p {
     vertical-align: middle;
     padding-top: 4px;
 }
@@ -102,24 +100,25 @@ On select design
 Til question
  */
 
-.answer{
+.answer {
     position: absolute;
     bottom: 30px;
 
 }
 
-.answer img{
+.answer img {
     display: block;
 }
-.like{
+
+.like {
     left: 30px;
 }
 
-.dislike{
+.dislike {
     right: 30px;
 }
 
-.dislike img{
+.dislike img {
     position: relative;
     left: 25px;
 }
@@ -129,23 +128,69 @@ Til Select
  */
 
 .select {
-    font-size : 2em;
+    font-size: 2em;
     background-color: #fff;
     overflow: hidden;
 }
 
-.select ul{
+.select ul {
     list-style-type: none;
     margin-left: 0;
     padding-left: 0;
 }
 
-.select a{
+.select a {
     text-decoration: none;
 
 }
 
-.select li{
-    margin : 30px 0 30px 0;
+.select li {
+    margin: 30px 0 30px 0;
 }
 
+/*
+Iphone 6S
+ */
+@media screen and (max-width: 414px) {
+
+    div {
+        font-size: 0.9em;
+    }
+
+    .til {
+        width: 125px;
+        height: 235px;
+    }
+
+    .til img {
+        height: 100px;
+    }
+
+    .answer img{
+        height: 20px;
+    }
+
+    .like{
+        left: 0;
+    }
+
+    .dislike{
+        right: 0;
+    }
+
+    .dislike img{
+        right: 0;
+    }
+
+    .price{
+        left: 77px;
+        bottom: 160px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .calque{
+        width: 125px;
+        height: 235px;
+    }
+}
