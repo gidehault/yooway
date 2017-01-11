@@ -17,17 +17,19 @@
 
     <div id="row-1" class="row">
         <div id="til-0" class="til draggable ui-widget-content">
-            <img src="img/images-1.jpg" alt="">
-            <div class="price">
-                <p>21,00 €</p>
-            </div>
-            <div class="answer like">
-                <img src="img/left.png" alt="to the left">
-                J'aime
-            </div>
-            <div class="answer dislike">
-                <img src="img/right.png" alt="to the right">
-                Je n'aime pas
+            <div id="1">
+                <img src="img/images-1.jpg" alt="">
+                <div class="price">
+                    21,00 €
+                </div>
+                <div class="answer like">
+                    <img src="img/left.png" alt="to the left">
+                    <div>J'aime</div>
+                </div>
+                <div class="answer dislike">
+                    <img src="img/right.png" alt="to the right">
+                    <div>Je n'aime pas</div>
+                </div>
             </div>
         </div>
         <div id="til-1" class="til draggable ui-widget-content">

@@ -4,9 +4,6 @@
 
 class Move {
 
-
-
-
     coloration(tilId, way) {
 
 
@@ -33,11 +30,11 @@ class Move {
 }
 
 class Connect {
-    static ajax(tilId, answer) {
+    static ajax(prodRef, answer) {
         $.ajax({
             method: 'POST',
             url: 'scenario.php',
-            data: {tilId: tilId, answer: answer},
+            data: {prodRef: prodRef, answer: answer},
             success: function (response) {
                 console.log(response);
             }
@@ -45,12 +42,13 @@ class Connect {
     }
 }
 
-let tilId;
-let answer;
+
 
 
 $(document).ready(function () {
-
+    let tilId; //id de la tuile
+    let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
+    let prodRef; //référence du produit concerné ou de la question
 
     $('.til').draggable({
         axis: 'x',
@@ -58,11 +56,12 @@ $(document).ready(function () {
             let move = new Move();
             //catch name of til
             tilId = $(this).attr('id');
+            prodRef = $('#' +tilId + '>div').attr('id');
             //Met la tuile au dessus
             $(this).addClass('ontop');
             //Detecte la direction du drag
             if (ui.originalPosition.left > ui.position.left) {
-                console.log(tilId + ' va à gauche');
+                console.log(tilId + ' va à gauche, la ref est ' + prodRef);
                 answer = 'left';
                 //add green color on the til
 
@@ -77,7 +76,7 @@ $(document).ready(function () {
 
         },
         stop: function () {
-            Connect.ajax(tilId, answer);
+            Connect.ajax(prodRef, answer);
             $('#' + tilId).fadeOut('slow');
         }
     });
