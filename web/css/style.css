@@ -24,6 +24,11 @@ body {
     margin: auto;
 }
 
+.row{
+    height: 341px;
+}
+
+
 /**
  * Til
  */
@@ -36,18 +41,22 @@ body {
     box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
     text-align: center;
     margin: 2px;
+    display: inline-block;
+    vertical-align: top;
+}
 
+.til-empty{
+    width: 246px;
+    height: 331px;
+    margin: 2px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .til p {
     padding-top: 50%;
 }
 
-.row .til {
-    display: inline-block;
-    vertical-align: top;
-
-}
 
 /*
 On select design
@@ -153,6 +162,9 @@ Iphone 6S
  */
 @media screen and (max-width: 414px) {
 
+    .row {
+        height: 242px;
+    }
     div {
         font-size: 0.9em;
     }
@@ -161,6 +173,15 @@ Iphone 6S
         width: 125px;
         height: 235px;
     }
+
+    .til-empty{
+        width: 125px;
+        height: 235px;
+        margin: 2px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
 
     .til img {
         height: 100px;

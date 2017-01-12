@@ -33,7 +33,7 @@ class Connect {
     static ajax(prodRef, answer) {
         $.ajax({
             method: 'POST',
-            url: 'scenario.php',
+            url: '/scenario',
             data: {prodRef: prodRef, answer: answer},
             success: function (response) {
                 console.log(response);

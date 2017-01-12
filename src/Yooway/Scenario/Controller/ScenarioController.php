@@ -1,0 +1,27 @@
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: florentingarnier
+ * Date: 13/01/2017
+ * Time: 00:21
+ */
+
+namespace Yooway\Scenario\Controller;
+
+
+use Silex\Application;
+use Symfony\Component\HttpFoundation\Request;
+use Yooway\Scenario\Model\ResultTestModel;
+
+class ScenarioController
+{
+    public function scenarioAction(Request $request, Application $application)
+    {
+
+        $resultTest = new ResultTestModel();
+
+        $result = $resultTest->detectCommunication($request->get('prodRef'), $request->get('answer'));
+
+        return $result;
+    }
+}
