@@ -56,7 +56,7 @@ class Questions
 	*/
 	public function findQuestion($id_rech)
 	{
-		foreach($this->list as $id->$question)
+		foreach($this->list as $id=>$question)
 		{
 			if($id==$id_rech)
 				return $question;

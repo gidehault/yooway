@@ -9,7 +9,7 @@ class WineList
 	public function __construct()
 	{
 		$this->list=array();
-		$wines = file_get_contents(__DIR__ . '/../JSON/wines.json');
+		$wines = file_get_contents(__DIR__ . '/../JSON/wine.json');
         $wines=json_decode($wines);
         foreach($wines as $id=>$wine)
         {
@@ -66,7 +66,9 @@ class WineList
 		foreach($this->list as &$wine)
 		{
 			if($wine->id==$id)
+			{
 				$wine->available=false;
+			}
 		}
 	}
 	/**

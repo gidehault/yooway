@@ -10,14 +10,14 @@ class Matrix
 	{
 		$this->matrix=array();
 		for($i=0;$i<9;$i++)
-			$this->matrix[$i]=="";
+			$this->matrix[$i]="";
 	}
 	/*
 	* retourne le json des directives à envoyer au js
 	*/
 	public function getDirectives() 
 	{
-		foreach($this->matrix as $id->$case)
+		foreach($this->matrix as $id=>$case)
 		{
 			if($case->old!="ok")
 			{
@@ -41,7 +41,7 @@ class Matrix
 		foreach($this->matrix as $case)
 		{
 			if($case=="" || $case->type=="wine")
-				$newlist[]=array_shift($wine);
+				$newlist[]=array_shift($list);
 			else
 				$newlist[]=$case;
 		}

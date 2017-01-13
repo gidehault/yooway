@@ -1,0 +1,20 @@
+<?php
+namespace Yooway\Tests;
+
+use Silex\WebTestCase;
+
+class YourTest extends WebTestCase
+{
+    public function createApplication()
+    {
+        return require __DIR__.'/../../../app.php';
+    }
+
+    public function testWineList()
+    {
+    	$var=1;
+    	$this->assertEquals($var,"1");
+    	$this->assertEquals($var,"0");
+    }
+}
+?>
