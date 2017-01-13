@@ -1,0 +1,45 @@
+{
+  "til-0": {
+    "type": "produit",
+    "img": "img/images-1.jpg",
+    "price": "5,00€"
+  },
+  "til-1": {
+    "type": "produit",
+    "img": "img/images-2.jpg",
+    "price": "17,00€"
+  },
+  "til-3": {
+    "type": "list",
+    "item-1": "plus de 5€",
+    "item-2": "plus de 10€",
+    "item-3": "plus de 20€",
+    "item-4": "plus de 40€",
+    "item-5": "plus de 100€"
+  },
+  "til-4": {
+    "type": "produit",
+    "img": "img/images-2.jpg",
+    "price": "24,00€"
+  },
+  "til-5": {
+    "type": "produit",
+    "img": "img/images-2.jpg",
+    "price": "250,00€"
+  },
+  "til-6": {
+    "type": "produit",
+    "img": "img/images-2.jpg",
+    "price": "60,00€"
+  },
+  "til-7": {
+    "type": "question",
+    "img": "img/images-2.jpg",
+    "price": "14,00€"
+  },
+  "til-8": {
+    "type": "produit",
+    "img": "img/images-2.jpg",
+    "price": "85,00€"
+  }
+}
