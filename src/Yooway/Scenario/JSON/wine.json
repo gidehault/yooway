@@ -33,19 +33,19 @@
   },
   "5": {
     "nom": "Château Rioublanc",
-    "img": "img/riesling.jpg",
+    "img": "img/rioublanc.jpg",
     "price": "66,00 €",
     "color": "red",
     "aperitif": "no",
     "cave": "yes"
   },
   "6": {
-    "nom": "Riesling",
-    "img": "img/riesling.jpg",
-    "price": "5,85€",
+    "nom": "Chateau d'Yquem 2005",
+    "img": "img/yquem.jpg",
+    "price": "329,00 €",
     "color": "white",
-    "aperitif": "no",
-    "cave": "no"
+    "aperitif": ["yes", "no"],
+    "cave": "yes"
   },
   "7": {
     "nom": "Riesling",
@@ -56,26 +56,26 @@
     "cave": "no"
   },
   "8": {
-    "nom": "Riesling",
-    "img": "img/riesling.jpg",
-    "price": "5,85€",
-    "color": "white",
+    "nom": "Intuition 2013",
+    "img": "img/intuition.jpg",
+    "price": "23,00 €",
+    "color": "red",
     "aperitif": "no",
     "cave": "no"
   },
   "9": {
-    "nom": "Riesling",
-    "img": "img/riesling.jpg",
-    "price": "5,85€",
-    "color": "white",
-    "aperitif": "no",
+    "nom": "Bandol",
+    "img": "img/bandol.jpg",
+    "price": "23,80 €",
+    "color": "rose",
+    "aperitif": ["yes", "no"],
     "cave": "no"
   },
   "10": {
-    "nom": "Riesling",
-    "img": "img/riesling.jpg",
-    "price": "5,85€",
-    "color": "white",
+    "nom": "Coroa d'Ouro Tinto 2013",
+    "img": "img/coroa.jpg",
+    "price": "9,90 €",
+    "color": "red",
     "aperitif": "no",
     "cave": "no"
   }
