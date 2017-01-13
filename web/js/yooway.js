@@ -28,7 +28,29 @@ class Move {
 
     }
 }
+class Screen
+{
 
+    constructor(response)
+    {
+        this.content = JSON.parse(response);
+    }
+
+    display()
+    {
+        if (this.content.type === 'question')
+        {
+
+            let questionDivELmt = $('#' + this.content.til);
+
+            $('#' + this.content.til + ' p').text(this.content.content);
+            // remet en place la til
+            $('.calque').remove();
+            questionDivELmt.css({top: 0, left: 0}).fadeIn('slow');
+
+        }
+    }
+}
 class Connect {
     static ajax(prodRef, answer) {
         $.ajax({
@@ -36,7 +58,8 @@ class Connect {
             url: '/scenario',
             data: {prodRef: prodRef, answer: answer},
             success: function (response) {
-                console.log(response);
+                let screen = new Screen(response)
+                screen.display();
             }
         })
     }
@@ -58,7 +81,7 @@ $(document).ready(function () {
             tilId = $(this).attr('id');
             prodRef = $('#' +tilId + '>div').attr('id');
             //Met la tuile au dessus
-            $(this).addClass('ontop');
+            //$(this).addClass('ontop');
             //Detecte la direction du drag
             if (ui.originalPosition.left > ui.position.left) {
                 console.log(tilId + ' va à gauche, la ref est ' + prodRef);
@@ -75,9 +98,13 @@ $(document).ready(function () {
             }
 
         },
+        zIndex: 100,
         stop: function () {
-            Connect.ajax(prodRef, answer);
-            $('#' + tilId).fadeOut('slow');
+            $('#' + tilId).fadeOut('fast', function(){
+                Connect.ajax(prodRef, answer);
+            });
+
+
         }
     });
 

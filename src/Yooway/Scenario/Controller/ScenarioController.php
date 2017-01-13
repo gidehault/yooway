@@ -11,14 +11,20 @@ namespace Yooway\Scenario\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use Yooway\Scenario\Model\ResultTestModel;
+use Yooway\Scenario\Model\ScenarioModel;
 
+/**
+ * Class ScenarioController
+ * @package Yooway\Scenario\Controller
+ *
+ *
+ */
 class ScenarioController
 {
     public function scenarioAction(Request $request, Application $application)
     {
 
-        $resultTest = new ResultTestModel();
+        $resultTest = new ScenarioModel();
 
         $result = $resultTest->detectCommunication($request->get('prodRef'), $request->get('answer'));
 
