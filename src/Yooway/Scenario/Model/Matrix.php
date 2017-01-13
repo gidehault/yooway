@@ -43,14 +43,14 @@ class Matrix
 	{
 		foreach($list as $wine)
 		{
-			if($this->rechWine($wine->id)==null)
+			if($this->findWine($wine->id)==null)
 			{
 				$this->matrix[$til]==$wine;
 				return;
 			}
 		}
 	}
-	public function rechWine($id)
+	public function findWine($id)
 	{
 		foreach($this->list as $wine)
 		{

@@ -35,26 +35,23 @@ class WineList
 	*/
 	public function removeCriteriaBoolean($nomcritere,$valeurafiltrer)
 	{
-		foreach($this->list as $wine)
+		foreach($this->list as &$wine)
 		{
-			if($wine->$nomcritere!=$valeurafiltrer)
-				$newlist[]=$wine;
+			if($wine->$nomcritere==$valeurafiltrer)
+				$wine->available=false;
 		}
-		$this->list=$newlist;		
 	}
 	/*
 	* tri des vins en enlevant ceux qui n'ont pas un bon prix
 	*/
 	public function removePrice($prixagarder)
 	{
-		foreach($this->list as $wine)
+		foreach($this->list as &$wine)
 		{
 			$prix=$this->convert($wine->price);
-			if($prix>$prixagarder-20 && $prix<$prixagarder+20)
-				$newlist[]=$wine;
+			if($prix<$prixagarder-20 || $prix>$prixagarder+20)
+				$wine->available=false;
 		}
-		}
-		$this->list=$newlist;		
 		
 	}
 	private function convert($text)
@@ -66,13 +63,21 @@ class WineList
 	*/
 	public function removeWine($id)
 	{
-		foreach($this->list as $wine)
+		foreach($this->list as &$wine)
 		{
-			if($wine->id!=$id)
-				$newlist[]=$wine;
+			if($wine->id==$id)
+				$wine->available=false;
 		}
-		$this->list=$newlist;		
-		
+	}
+	/**
+	* rend à nouveau tous les vins accessibles
+	*/
+	public function reset()
+	{		
+		foreach($this->list as &$wine)
+		{
+			$wine->available=true;
+		}
 	}
 }
 
