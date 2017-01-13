@@ -9,13 +9,24 @@ class Matrix
 	public function __construct()
 	{
 		$this->matrix=array();
+		for($i=0;$i<9;$i++)
+			$this->matrix[$i]=="";
 	}
 	/*
 	* retourne le json des directives à envoyer au js
 	*/
 	public function getDirectives() 
 	{
-		return $this->getDirectivesMockup();
+		foreach($this->matrix as $id->$case)
+		{
+			if($case->old!="ok")
+			{
+				$directives[$id]=$case;
+			}
+		}
+		$this->reset();
+		return $directives;
+		//return $this->getDirectivesMockup();
 	}
 	private function getDirectivesMockup()
 	{
@@ -27,14 +38,14 @@ class Matrix
 	*/
 	public function pushWines($list) 
 	{
-		foreach($this->list as $case)
+		foreach($this->matrix as $case)
 		{
-			if($case->type="wine")
+			if($case=="" || $case->type=="wine")
 				$newlist[]=array_shift($wine);
 			else
 				$newlist[]=$case;
 		}
-		$this->list=$newlist;
+		$this->matrix=$newlist;
 	}
 	/*
 	* modifie juste un pinard dans une case (la liste est nécessaire pour prendre le premier de la liste qui est non encore utilisé)
@@ -52,9 +63,9 @@ class Matrix
 	}
 	public function findWine($id)
 	{
-		foreach($this->list as $wine)
+		foreach($this->matrix as $case)
 		{
-			if($wine->id==$id)
+			if($case->type=="wine" && $case->id==$id)
 				return $wine;
 		}
 		return null;
@@ -65,6 +76,27 @@ class Matrix
 	public function pushElement($til,$element) 
 	{
 		$this->matrix[$til]=$element;
+	}
+	/*
+	* met à jour le bloc question
+	*/
+	public function changeQuestion($question) 
+	{
+		foreach($this->matrix as $id=>$case)
+		{
+			if($case->type=="question")
+				$this->matrix[$id]=$question;
+		}
+	}
+	/*
+	* Réinitialise tous les éléments de la matrice en les marquant comme 'vieux'
+	*/
+	public function reset()
+	{
+		foreach($this->matrix as &$case)
+		{
+			$case->old=="ok";
+		}
 	}
 }
 
