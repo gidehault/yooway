@@ -102,10 +102,11 @@ $(document).ready(function () {
             }
 
         },
-        handle: 'img, p',
+        handle: 'img, p, li',
         zIndex: 100,
         stop: function () {
-            $('#' + tilId).fadeOut('fast', function(){
+            $('.calque').remove();
+            $('#' + tilId).toggle('puff', function(){
                 Connect.ajax(prodRef, answer, tilId);
             });
 

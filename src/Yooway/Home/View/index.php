@@ -20,7 +20,7 @@
             <div id="1">
                 <img src="img/images-1.jpg" alt="">
                 <div class="price">
-                    21,00 €
+                    <p>5,00 €</p>
                 </div>
                 <div class="answer like">
                     <img src="img/left.png" alt="to the left">
@@ -35,7 +35,7 @@
         <div id="til-1" class="til draggable ui-widget-content">
             <img src="img/images-2.jpg" alt="">
             <div class="price">
-                <p>21,00 €</p>
+                <p>17,00 €</p>
             </div>
             <div class="answer like">
                 <img src="img/left.png" alt="to the left">
@@ -48,11 +48,11 @@
         </div>
         <div id="til-2" class="til select">
             <ul id="list">
-                <li><a href="">Bordeaux</a></li>
-                <li><a href="">Côtes du Rhône</a></li>
-                <li><a href="">Côtes d'Auvergne</a></li>
-                <li><a href="">Alsace</a></li>
-                <li><a href="">Bourgogne</a></li>
+                <li><a href="">plus de 5€</a></li>
+                <li><a href="">plus de 10€</a></li>
+                <li><a href="">plus de 20€</a></li>
+                <li><a href="">plus de 40€</a></li>
+                <li><a href="">plus de 100€</a></li>
             </ul>
         </div>
     </div>
@@ -62,7 +62,7 @@
         <div id="til-3" class="til draggable ui-widget-content">
             <img src="img/images.jpg" alt="">
             <div class="price">
-                <p>21,00 €</p>
+                <p>24,00 €</p>
             </div>
             <div class="answer like">
                 <img src="img/left.png" alt="to the left">
@@ -76,7 +76,7 @@
         <div id="til-4" class="til draggable ui-widget-content">
             <img src="img/imgres-1.jpg" alt="">
             <div class="price">
-                <p>21,00 €</p>
+                <p>250,00 €</p>
             </div>
             <div class="answer like">
                 <img src="img/left.png" alt="to the left">
@@ -91,7 +91,7 @@
         <div id="til-5" class="til draggable ui-widget-content">
             <img src="img/imgres-2.jpg" alt="">
             <div class="price">
-                <p>21,00 €</p>
+                <p>60,00 €</p>
             </div>
             <div class="answer like">
                 <img src="img/left.png" alt="to the left">
@@ -108,7 +108,7 @@
         <div id="til-6" class="til draggable ui-widget-content">
             <img src="img/imgres.jpg" alt="">
             <div class="price">
-                <p>21,00 €</p>
+                <p>14,00 €</p>
             </div>
             <div class="answer like">
                 <img src="img/left.png" alt="to the left">
@@ -135,7 +135,7 @@
         <div id="til-8" class="til draggable ui-widget-content">
             <img src="img/images-1.jpg" alt="">
             <div class="price">
-                <p>21,00 €</p>
+                <p>85,00 €</p>
             </div>
             <div class="answer like">
                 <img src="img/left.png" alt="to the left">

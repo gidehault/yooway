@@ -137,7 +137,7 @@ Til Select
  */
 
 .select {
-    font-size: 2em;
+    font-size: 1.5em;
     background-color: #fff;
     overflow: hidden;
 }
@@ -161,6 +161,10 @@ Til Select
 Iphone 6S
  */
 @media screen and (max-width: 414px) {
+
+    .container{
+        width: 414px;
+    }
 
     .row {
         height: 242px;

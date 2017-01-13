@@ -31,6 +31,8 @@ class ScenarioModel
 
                 }
                 return $content;
+            } else if ($answer === 'right'){
+                return 'this is the right';
             }
 
         } else {
