@@ -195,14 +195,17 @@ Iphone 6S
     .like{
         left: 0;
     }
-
+/*
     .dislike{
         right: 0;
     }
+*/
+   /*
+   .dislike img{
 
-    .dislike img{
         right: 0;
     }
+    */
 
     .price{
         left: 77px;

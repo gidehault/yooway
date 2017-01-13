@@ -48,7 +48,7 @@ class Screen
     {
         let questionDivELmt = $('#' + this.content.til);
 
-        $('#' + this.content.til + ' p').text(this.content.content);
+        $('#question').text(this.content.content);
         // remet en place la til
         $('.calque').remove();
         questionDivELmt.css({top: 0, left: 0}).fadeIn('fast');
@@ -102,6 +102,7 @@ $(document).ready(function () {
             }
 
         },
+        handle: 'img, p',
         zIndex: 100,
         stop: function () {
             $('#' + tilId).fadeOut('fast', function(){

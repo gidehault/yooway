@@ -121,14 +121,14 @@
         </div>
         <div id="til-7" class="til yooway-question draggable ui-widget-content">
             <div id="question1">
-            <p>Vin à boire maintenant?</p>
+            <p id="question">Vin à boire maintenant?</p>
             <div class="answer like">
                 <img src="img/left.png" alt="to the left">
-                Oui
+                <p>Oui</p>
             </div>
             <div class="answer dislike">
                 <img src="img/right.png" alt="to the right">
-                Non
+                <p>Non</p>
             </div>
             </div>
         </div>
