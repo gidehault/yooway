@@ -30,15 +30,19 @@ class Move {
 }
 class Screen
 {
-
+    /**
+     * response contient l'id de til, le type de tuile(question, combo, produit), et le contenu
+     * @param response
+     */
     constructor(response)
     {
-        this.content = JSON.parse(response);
+        this.scenario = JSON.parse(response);
+        console.log(this.scenario);
     }
 
     display()
     {
-        if (this.content.type === 'question')
+        if (this.scenario.type === 'question')
         {
          this.question()
         }
@@ -46,12 +50,19 @@ class Screen
 
     question()
     {
-        let questionDivELmt = $('#' + this.content.til);
+        let questionDivELmt = $('#' + this.scenario.til);
 
-        $('#question').text(this.content.content);
+        $('#question').text(this.scenario.scenario);
+        $('#' + this.scenario.til + ' div:first-child').attr('id', this.scenario.nextStep);
         // remet en place la til
         $('.calque').remove();
         questionDivELmt.css({top: 0, left: 0}).fadeIn('fast');
+
+        if (this.scenario.action)
+        {
+            console.log('#' + this.scenario.action.til + ' #illustration');
+            $('#' + this.scenario.action.til + '#illustration').attr('src', this.scenario.action.illustration)
+        }
     }
 
 }

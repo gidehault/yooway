@@ -1217,7 +1217,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		assert(function( div ) {
 			// Select is set to empty string on purpose
 			// This is to test IE's treatment of not explicitly
-			// setting a boolean content attribute,
+			// setting a boolean scenario attribute,
 			// since its presence should be enough
 			// http://bugs.jquery.com/ticket/12359
 			docElem.appendChild( div ).innerHTML = "<a id='" + expando + "'></a>" +
@@ -1993,7 +1993,7 @@ Expr = Sizzle.selectors = {
 		// Contents
 		"empty": function( elem ) {
 			// http://www.w3.org/TR/selectors/#empty-pseudo
-			// :empty is negated by element (1) or content nodes (text: 3; cdata: 4; entity ref: 5),
+			// :empty is negated by element (1) or scenario nodes (text: 3; cdata: 4; entity ref: 5),
 			//   but not by others (comment: 8; processing instruction: 7; etc.)
 			// nodeType < 6 works because attributes (2) do not appear as children
 			for ( elem = elem.firstChild; elem; elem = elem.nextSibling ) {
@@ -4280,8 +4280,8 @@ jQuery.fn.extend( {
 
 				// Support: Firefox<29, Android 2.3
 				// Vendor-prefix box-sizing
-				"-webkit-box-sizing:content-box;-moz-box-sizing:content-box;" +
-				"box-sizing:content-box;display:block;margin:0;border:0;" +
+				"-webkit-box-sizing:scenario-box;-moz-box-sizing:scenario-box;" +
+				"box-sizing:scenario-box;display:block;margin:0;border:0;" +
 				"padding:1px;width:1px;zoom:1";
 			div.appendChild( document.createElement( "div" ) ).style.width = "5px";
 			shrinkWrapBlocksVal = div.offsetWidth !== 3;
@@ -4630,7 +4630,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 				tmp.innerHTML = wrap[ 1 ] + jQuery.htmlPrefilter( elem ) + wrap[ 2 ];
 
-				// Descend through wrappers to the right content
+				// Descend through wrappers to the right scenario
 				j = wrap[ 0 ];
 				while ( j-- ) {
 					tmp = tmp.lastChild;
@@ -6040,7 +6040,7 @@ function domManip( collection, args, callback, ignored ) {
 			fragment = first;
 		}
 
-		// Require either new content or an interest in ignored elements to invoke the callback
+		// Require either new scenario or an interest in ignored elements to invoke the callback
 		if ( first || ignored ) {
 			scripts = jQuery.map( getAll( fragment, "script" ), disableScript );
 			hasScripts = scripts.length;
@@ -6380,7 +6380,7 @@ jQuery.fn.extend( {
 	replaceWith: function() {
 		var ignored = [];
 
-		// Make the changes, replacing each non-ignored context element with the new content
+		// Make the changes, replacing each non-ignored context element with the new scenario
 		return domManip( this, arguments, function( elem ) {
 			var parent = this.parentNode;
 
@@ -6536,9 +6536,9 @@ var documentElement = document.documentElement;
 	// (IE uses styleFloat instead of cssFloat)
 	support.cssFloat = !!div.style.cssFloat;
 
-	div.style.backgroundClip = "content-box";
+	div.style.backgroundClip = "scenario-box";
 	div.cloneNode( true ).style.backgroundClip = "";
-	support.clearCloneStyle = div.style.backgroundClip === "content-box";
+	support.clearCloneStyle = div.style.backgroundClip === "scenario-box";
 
 	container = document.createElement( "div" );
 	container.style.cssText = "border:0;width:8px;height:0;top:0;left:-9999px;" +
@@ -6648,8 +6648,8 @@ var documentElement = document.documentElement;
 
 				// Support: Android 2.3
 				// Vendor-prefix box-sizing
-				"-webkit-box-sizing:content-box;-moz-box-sizing:content-box;" +
-				"box-sizing:content-box;display:block;margin:0;border:0;padding:0";
+				"-webkit-box-sizing:scenario-box;-moz-box-sizing:scenario-box;" +
+				"box-sizing:scenario-box;display:block;margin:0;border:0;padding:0";
 			contents.style.marginRight = contents.style.width = "0";
 			div.style.width = "1px";
 
@@ -6945,7 +6945,7 @@ function setPositiveNumber( elem, value, subtract ) {
 }
 
 function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
-	var i = extra === ( isBorderBox ? "border" : "content" ) ?
+	var i = extra === ( isBorderBox ? "border" : "scenario" ) ?
 
 		// If we already have the right measurement, avoid augmentation
 		4 :
@@ -6964,8 +6964,8 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 
 		if ( isBorderBox ) {
 
-			// border-box includes padding, so remove it if we want content
-			if ( extra === "content" ) {
+			// border-box includes padding, so remove it if we want scenario
+			if ( extra === "scenario" ) {
 				val -= jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
 			}
 
@@ -6975,10 +6975,10 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 			}
 		} else {
 
-			// at this point, extra isn't content, so add padding
+			// at this point, extra isn't scenario, so add padding
 			val += jQuery.css( elem, "padding" + cssExpand[ i ], true, styles );
 
-			// at this point, extra isn't content nor padding, so add border
+			// at this point, extra isn't scenario nor padding, so add border
 			if ( extra !== "padding" ) {
 				val += jQuery.css( elem, "border" + cssExpand[ i ] + "Width", true, styles );
 			}
@@ -7027,7 +7027,7 @@ function getWidthOrHeight( elem, name, extra ) {
 		augmentWidthOrHeight(
 			elem,
 			name,
-			extra || ( isBorderBox ? "border" : "content" ),
+			extra || ( isBorderBox ? "border" : "scenario" ),
 			valueIsBorderBox,
 			styles
 		)
@@ -9192,7 +9192,7 @@ function ajaxExtend( target, src ) {
 }
 
 /* Handles responses to an ajax request:
- * - finds the right dataType (mediates between content-type and expected dataType)
+ * - finds the right dataType (mediates between scenario-type and expected dataType)
  * - returns the corresponding response
  */
 function ajaxHandleResponses( s, jqXHR, responses ) {
@@ -9200,7 +9200,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		contents = s.contents,
 		dataTypes = s.dataTypes;
 
-	// Remove auto dataType and get content-type in the process
+	// Remove auto dataType and get scenario-type in the process
 	while ( dataTypes[ 0 ] === "*" ) {
 		dataTypes.shift();
 		if ( ct === undefined ) {
@@ -9208,7 +9208,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		}
 	}
 
-	// Check if we're dealing with a known content-type
+	// Check if we're dealing with a known scenario-type
 	if ( ct ) {
 		for ( type in contents ) {
 			if ( contents[ type ] && contents[ type ].test( ct ) ) {
@@ -9540,7 +9540,7 @@ jQuery.extend( {
 					return this;
 				},
 
-				// Overrides response content-type header
+				// Overrides response scenario-type header
 				overrideMimeType: function( type ) {
 					if ( !state ) {
 						s.mimeType = type;
@@ -9632,14 +9632,14 @@ jQuery.extend( {
 		// Uppercase the type
 		s.type = s.type.toUpperCase();
 
-		// Determine if request has content
+		// Determine if request has scenario
 		s.hasContent = !rnoContent.test( s.type );
 
 		// Save the URL in case we're toying with the If-Modified-Since
 		// and/or If-None-Match header later on
 		cacheURL = s.url;
 
-		// More options handling for requests with no content
+		// More options handling for requests with no scenario
 		if ( !s.hasContent ) {
 
 			// If data is available, append data to url
@@ -9803,7 +9803,7 @@ jQuery.extend( {
 					}
 				}
 
-				// if no content
+				// if no scenario
 				if ( status === 204 || s.type === "HEAD" ) {
 					statusText = "nocontent";
 

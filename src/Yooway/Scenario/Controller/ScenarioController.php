@@ -26,7 +26,7 @@ class ScenarioController
 
         $resultTest = new ScenarioModel();
 
-        $result = $resultTest->detectCommunication(
+        $result = $resultTest->dispatchYesNo(
             $request->get('prodRef'),
             $request->get('answer'),
             $request->get('tilId')

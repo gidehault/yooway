@@ -11,28 +11,30 @@ namespace Yooway\Scenario\Model;
 
 class ScenarioModel
 {
-    public function detectCommunication($prodRef, $answer, $tilId)
+    /**
+     * @param $prodRef
+     * @param $answer
+     * @param $tilId identifiant envoyé par yooway.js
+     * @return string
+     */
+    public function dispatchYesNo($prodRef, $answer, $tilId)
     {
-        if (isset($prodRef) && isset($answer)){
+        if (isset($prodRef) && isset($answer)) {
             $step = file_get_contents(__DIR__ . '/step.json');
             $step = json_decode($step);
-            $content = "";
+            if ($answer === "left") {
 
-            if ($answer === "left"){
-                //Regarde si c'est une question ou un produit et renvoi le contenu de la prochaine tuile
-                if ($prodRef === "question1"){
-                    $content = $step->question2->content;
-                    $type = $step->question2->type;
-                    $content = json_encode([
-                        "type" => $type,
-                        "content" => $content,
-                        "til" => $tilId
-                    ]);
+                if ($prodRef === "question1") {
+                    return $this->questionBuilder($prodRef, $step, $tilId);
+                }
+
+            } else if ($answer === 'right') {
+
+                if ($prodRef === "question2") {
+
+                    return $this->questionBuilder($prodRef, $step, $tilId);
 
                 }
-                return $content;
-            } else if ($answer === 'right'){
-                return 'this is the right';
             }
 
         } else {
@@ -40,6 +42,16 @@ class ScenarioModel
         }
 
 
+    }
+
+    private function questionBuilder($questionNb, $step, $tilId)
+    {
+        //Surcharge l'objet json pour savoir d'oùu viens le drag.
+        $step->$questionNb->til = $tilId;
+
+        $content = json_encode($step->$questionNb);
+
+        return $content;
     }
 
 }

@@ -18,9 +18,9 @@
     <div id="row-1" class="row">
         <div id="til-0" class="til draggable ui-widget-content">
             <div id="1">
-                <img src="img/images-1.jpg" alt="">
+                <img id="illustration "src="img/images-1.jpg" alt="">
                 <div class="price">
-                    <p>5,00 €</p>
+                    <p id="prix">5,00 €</p>
                 </div>
                 <div class="answer like">
                     <img src="img/left.png" alt="to the left">
@@ -133,7 +133,7 @@
             </div>
         </div>
         <div id="til-8" class="til draggable ui-widget-content">
-            <img src="img/images-1.jpg" alt="">
+            <img src="img/images-3.jpg" alt="">
             <div class="price">
                 <p>85,00 €</p>
             </div>
