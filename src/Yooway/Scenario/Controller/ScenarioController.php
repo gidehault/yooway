@@ -11,6 +11,7 @@ namespace Yooway\Scenario\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Yooway\Scenario\Model\Matrix;
 use Yooway\Scenario\Model\ScenarioModel;
 
 /**
@@ -21,17 +22,16 @@ use Yooway\Scenario\Model\ScenarioModel;
  */
 class ScenarioController
 {
+    /**
+     * @param Request $request
+     * @param Application $application
+     * @return string
+     */
     public function scenarioAction(Request $request, Application $application)
     {
+        $matrix = new Matrix();
 
-        $resultTest = new ScenarioModel();
-
-        $result = $resultTest->dispatchYesNo(
-            $request->get('prodRef'),
-            $request->get('answer'),
-            $request->get('tilId')
-        );
-
-        return $result;
+        return $matrix->getDirectives();
     }
+
 }

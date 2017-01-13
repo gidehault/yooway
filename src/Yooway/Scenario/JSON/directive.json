@@ -33,9 +33,11 @@
     "price": "60,00€"
   },
   "til-7": {
-    "type": "question",
-    "img": "img/images-2.jpg",
-    "price": "14,00€"
+    "type": "yesNoQuestion",
+    "content": "Vin à boire maintenant ?",
+    "criteria": "maitenant",
+    "nextStepYes": "question2",
+    "nextStepNo": ""
   },
   "til-8": {
     "type": "produit",
