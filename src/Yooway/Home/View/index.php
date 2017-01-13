@@ -121,33 +121,32 @@
         </div>
         <div id="til-7" class="til yooway-question draggable ui-widget-content">
             <div id="question1">
-                <p>Vin à boire maintenant?</p>
-                <div class="answer like">
-                    <img src="img/left.png" alt="to the left">
-                    Oui
-                </div>
-                <div class="answer dislike">
-                    <img src="img/right.png" alt="to the right">
-                    Non
-                </div>
+            <p>Vin à boire maintenant?</p>
+            <div class="answer like">
+                <img src="img/left.png" alt="to the left">
+                Oui
+            </div>
+            <div class="answer dislike">
+                <img src="img/right.png" alt="to the right">
+                Non
+            </div>
+            </div>
+        </div>
+        <div id="til-8" class="til draggable ui-widget-content">
+            <img src="img/images-1.jpg" alt="">
+            <div class="price">
+                <p>21,00 €</p>
+            </div>
+            <div class="answer like">
+                <img src="img/left.png" alt="to the left">
+                J'aime
+            </div>
+            <div class="answer dislike">
+                <img src="img/right.png" alt="to the right">
+                Je n'aime pas
             </div>
         </div>
     </div>
-    <div id="til-8" class="til draggable ui-widget-content">
-        <img src="img/images-1.jpg" alt="">
-        <div class="price">
-            <p>21,00 €</p>
-        </div>
-        <div class="answer like">
-            <img src="img/left.png" alt="to the left">
-            J'aime
-        </div>
-        <div class="answer dislike">
-            <img src="img/right.png" alt="to the right">
-            Je n'aime pas
-        </div>
-    </div>
-</div>
 </div>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
