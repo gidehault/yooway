@@ -20,7 +20,7 @@ class ScenarioModel
     public function dispatchYesNo($prodRef, $answer, $tilId)
     {
         if (isset($prodRef) && isset($answer)) {
-            $step = file_get_contents(__DIR__ . '/../JSON/step.json');
+            $step = file_get_contents(__DIR__ . '/../JSON/questions.json');
             $step = json_decode($step);
             if ($answer === "left") {
 

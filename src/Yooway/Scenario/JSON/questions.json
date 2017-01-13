@@ -1,0 +1,66 @@
+{
+  "question1": {
+    "type": "yesNoQuestion",
+    "content": "Vin à boire maintenant ?",
+    "criteria": "maitenant",
+    "nextStepYes": "question2",
+    "nextStepNo": ""
+  },
+  "question2": {
+    "type": "yesNoQuestion",
+    "content": "Pour l’apéritif ?",
+    "criteria": "aperitif",
+    "nextStepYes": "",
+    "nextStepNo": "question3"
+  },
+
+  "question3": {
+    "type": "yesNoQuestion",
+    "content": "Pour manger ?",
+    "criteria": "manger",
+    "nextStepYes": "question4",
+    "nextStepNo": ""
+    },
+
+  "question4": {
+    "type": "questionWithChoice",
+    "content": "Viande ou poisson ?",
+    "criteria": "viande",
+    "left": "Viande",
+    "right": "Poisson",
+    "nextStepYes": "question5",
+    "nextStepNo": ""
+    },
+
+  "question5": {
+    "type": "yesNoQuestion",
+    "content": "Boeuf ?",
+    "criteria": "boeuf",
+    "nextStepYes": "",
+    "nextStepNo": "question6"
+  },
+
+  "question6": {
+    "type": "yesNoQuestion",
+    "content": "Porc?",
+    "criteria": "porc",
+    "nextStepYes": "question7",
+    "nextStepNo": ""
+  },
+
+  "question7": {
+    "type": "yesNoQuestion",
+    "content": "Viande en sauce ?",
+    "criteria": "sauce",
+    "nextStepYes": "question4",
+    "nextStepNo": ""
+  },
+
+  "question8": {
+    "type": "yesNoQuestion",
+    "content": "Porc au caramel ?",
+    "criteria": "porc caramel",
+    "nextStepYes": "",
+    "nextStepNo": ""
+  }
+}
