@@ -11,7 +11,7 @@ namespace Yooway\Scenario\Model;
 
 class ScenarioModel
 {
-    public function detectCommunication($prodRef, $answer)
+    public function detectCommunication($prodRef, $answer, $tilId)
     {
         if (isset($prodRef) && isset($answer)){
             $step = file_get_contents(__DIR__ . '/step.json');
@@ -22,12 +22,11 @@ class ScenarioModel
                 //Regarde si c'est une question ou un produit et renvoi le contenu de la prochaine tuile
                 if ($prodRef === "question1"){
                     $content = $step->question2->content;
-                    $til = $step->question2->til;
                     $type = $step->question2->type;
                     $content = json_encode([
                         "type" => $type,
                         "content" => $content,
-                        "til" => $til
+                        "til" => $tilId
                     ]);
 
                 }

@@ -26,7 +26,11 @@ class ScenarioController
 
         $resultTest = new ScenarioModel();
 
-        $result = $resultTest->detectCommunication($request->get('prodRef'), $request->get('answer'));
+        $result = $resultTest->detectCommunication(
+            $request->get('prodRef'),
+            $request->get('answer'),
+            $request->get('tilId')
+        );
 
         return $result;
     }

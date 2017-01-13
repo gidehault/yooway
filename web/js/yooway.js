@@ -21,7 +21,7 @@ class Move {
             tilIdElmt.append("<div class='calque'></div>");
             //color the background of calque div
             this.way = way;
-            $('.calque').addClass(way).fadeIn('slow');
+            $('.calque').addClass(way).fadeIn('fast');
         }
 
 
@@ -40,23 +40,27 @@ class Screen
     {
         if (this.content.type === 'question')
         {
-
-            let questionDivELmt = $('#' + this.content.til);
-
-            $('#' + this.content.til + ' p').text(this.content.content);
-            // remet en place la til
-            $('.calque').remove();
-            questionDivELmt.css({top: 0, left: 0}).fadeIn('slow');
-
+         this.question()
         }
     }
+
+    question()
+    {
+        let questionDivELmt = $('#' + this.content.til);
+
+        $('#' + this.content.til + ' p').text(this.content.content);
+        // remet en place la til
+        $('.calque').remove();
+        questionDivELmt.css({top: 0, left: 0}).fadeIn('fast');
+    }
+
 }
 class Connect {
-    static ajax(prodRef, answer) {
+    static ajax(prodRef, answer, tilId) {
         $.ajax({
             method: 'POST',
             url: '/scenario',
-            data: {prodRef: prodRef, answer: answer},
+            data: {prodRef: prodRef, answer: answer, tilId: tilId},
             success: function (response) {
                 let screen = new Screen(response)
                 screen.display();
@@ -101,7 +105,7 @@ $(document).ready(function () {
         zIndex: 100,
         stop: function () {
             $('#' + tilId).fadeOut('fast', function(){
-                Connect.ajax(prodRef, answer);
+                Connect.ajax(prodRef, answer, tilId);
             });
 
 
