@@ -1,0 +1,82 @@
+{
+  "1": {
+    "nom": "Riesling",
+    "img": "img/riesling.jpg",
+    "price": "5,85 €",
+    "color": "white",
+    "aperitif": "no",
+    "cave": "no"
+  },
+  "2": {
+    "nom": "Lillet",
+    "img": "img/lillet.jpg",
+    "price": "12,99 €",
+    "color": "white",
+    "aperitif": "yes",
+    "cave": "no"
+  },
+  "3": {
+    "nom": "Saint-Joseph",
+    "img": "img/st-joseph.jpg",
+    "price": "15,99 €",
+    "color": "white",
+    "aperitif": "no",
+    "cave": "yes"
+  },
+  "4": {
+    "nom": "Domaine du Moulin de Dusenbach",
+    "img": "img/dusenbach.jpg",
+    "price": "9,00 €",
+    "color": "red",
+    "aperitif": "yes",
+    "cave": "no"
+  },
+  "5": {
+    "nom": "Château Rioublanc",
+    "img": "img/riesling.jpg",
+    "price": "66,00 €",
+    "color": "red",
+    "aperitif": "no",
+    "cave": "yes"
+  },
+  "6": {
+    "nom": "Riesling",
+    "img": "img/riesling.jpg",
+    "price": "5,85€",
+    "color": "white",
+    "aperitif": "no",
+    "cave": "no"
+  },
+  "7": {
+    "nom": "Riesling",
+    "img": "img/riesling.jpg",
+    "price": "5,85€",
+    "color": "white",
+    "aperitif": "no",
+    "cave": "no"
+  },
+  "8": {
+    "nom": "Riesling",
+    "img": "img/riesling.jpg",
+    "price": "5,85€",
+    "color": "white",
+    "aperitif": "no",
+    "cave": "no"
+  },
+  "9": {
+    "nom": "Riesling",
+    "img": "img/riesling.jpg",
+    "price": "5,85€",
+    "color": "white",
+    "aperitif": "no",
+    "cave": "no"
+  },
+  "10": {
+    "nom": "Riesling",
+    "img": "img/riesling.jpg",
+    "price": "5,85€",
+    "color": "white",
+    "aperitif": "no",
+    "cave": "no"
+  }
+}
