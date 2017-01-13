@@ -13,8 +13,8 @@ class WineList
         $wines=json_decode($wines);
         foreach($wines as $id=>$wine)
         {
-        	$wine['id']=$id;
-        	$wine['available']=true;
+        	$wine->id=$id;
+        	$wine->available=true;
         	$this->list[]=$wine;
         }
 	}
@@ -25,7 +25,7 @@ class WineList
 	{
 		foreach($this->list as $wine)
 		{
-			if($wine['available']==true)
+			if($wine->available==true)
 				$selectionne[]=$wine;
 		}
 		return $selectionne;
@@ -37,7 +37,7 @@ class WineList
 	{
 		foreach($this->list as $wine)
 		{
-			if($wine[$nomcritere]!=$valeurafiltrer)
+			if($wine->$nomcritere!=$valeurafiltrer)
 				$newlist[]=$wine;
 		}
 		$this->list=$newlist;		
@@ -49,13 +49,17 @@ class WineList
 	{
 		foreach($this->list as $wine)
 		{
-			$prix=$this->convert($wine['price']);
+			$prix=$this->convert($wine->price);
 			if($prix>$prixagarder-20 && $prix<$prixagarder+20)
 				$newlist[]=$wine;
 		}
 		}
 		$this->list=$newlist;		
 		
+	}
+	private function convert($text)
+	{
+		return 0;
 	}
 	/*
 	* suppression d'un vin en particulier
@@ -64,7 +68,7 @@ class WineList
 	{
 		foreach($this->list as $wine)
 		{
-			if($wine['id']!=$id)
+			if($wine->id!=$id)
 				$newlist[]=$wine;
 		}
 		$this->list=$newlist;		
