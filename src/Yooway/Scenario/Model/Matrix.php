@@ -13,7 +13,7 @@ class Matrix
 	}
 	private function getDirectivesMockup()
 	{
-	    $directives = file_get_contents(__DIR__ . '/directive.json');
+	    $directives = file_get_contents(__DIR__ . '/../JSON/directive.json');
         return json_decode($directives);
 	}
 	/*
