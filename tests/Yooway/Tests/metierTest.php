@@ -8,7 +8,7 @@ require __DIR__.'/../../../src/Yooway/Scenario/Model/Matrix.php';
 require __DIR__.'/../../../src/Yooway/Scenario/Model/Questions.php';
 require __DIR__.'/../../../src/Yooway/Scenario/Model/WineList.php';
 
-class StackTest extends TestCase
+class MetierTest extends TestCase
 {
     public function testMatrix()
     {
