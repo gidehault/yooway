@@ -25,14 +25,15 @@ class Selection
 		$var='{
     "type": "list",
     "item": [
-      "5":"plus de 5€",
-      "10":""plus de 10€",
-      "20":""plus de 20€",
-      "40":""plus de 40€",
-      "100":""plus de 100€"
+      {"price":"5","libelle":"plus de 5€"},
+      {"price":"10","libelle": "plus de 10€"},
+      {"price":"20","libelle": "plus de 20€"},
+      {"price":"40","libelle": "plus de 40€"},
+      {"price":"100","libelle": "plus de 100€"}
     ]
   }
 ';
+//echo $var;
 	return json_decode($var);
 
 	}

@@ -50,10 +50,11 @@ class WineList
 	*/
 	public function removePrice($prixagarder)
 	{
+		$this->reset();
 		foreach($this->list as &$wine)
 		{
 			$prix=$this->convert($wine->price);
-			if($prix<$prixagarder-20 || $prix>$prixagarder+20)
+			if($prix<$prixagarder)
 				$wine->available=false;
 		}
 		

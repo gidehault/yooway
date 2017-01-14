@@ -60,7 +60,6 @@ class ScenarioController
         // si premier affichage, on force un réinit des éléments de la matrice
         //if($init==1)
         //    $matrix->reset();
-
         // traitement des informations en entrée, suivant le type de widget qui communique
         if($type=="yesNoQuestion" || $type=="questionWithChoice")
         {
@@ -73,7 +72,7 @@ class ScenarioController
             $matrix->winelist->removeWine($prodref);
             $matrix->pushWine($tilId);
         }
-        if($type=="selection")
+        if($type=="list")
         {
             $matrix->winelist->removePrice($answer);
             $matrix->pushWines();
