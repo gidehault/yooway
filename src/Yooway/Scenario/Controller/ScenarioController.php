@@ -37,8 +37,7 @@ class ScenarioController
         {
             $matrix=new Matrix();
             // création d'une premiere matrice
-            $questions=new Questions();
-            $matrix->pushElement(4,$questions->findQuestion("question4"));
+            $matrix->pushElement(4,$matrix->questions->findQuestion("question4"));
             $matrix->pushWines();
             //$request->get('session')->set('matrix',$matrix);
         }
@@ -47,17 +46,19 @@ class ScenarioController
             $matrix=$_SESSION['matrix'];
         }
 
+        $init=$request->get('init');
         $prodref=$request->get('prodRef');
         $answer=$request->get('answer');
         $tilId=$request->get('tilId');
         $type=""; // question, wine, selection
-        $critere=""; // encodé dans la question
         $valeur=""; // valeur de sélection
 
+        if($init==1)
+            $matrix->reset();
 
         if($type=="question")
         {
-            $matrix->winelist->removeCriteriaBoolean($critere,$answer);
+            $matrix->questions->question($prodref,$answer,$matrix->winelist);
             $matrix->pushWines();
         }
         if($type=="wine")

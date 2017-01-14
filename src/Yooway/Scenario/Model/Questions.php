@@ -39,12 +39,12 @@ class Questions
 			return null;
 		if($reponse=="yes")
 		{
-			$winelist->removeCriteriaBoolean($question->criteria,"yes");
+			$winelist->removeCriteriaBoolean($question->criteria,"no");
 			$nextstep=$question->nextStepYes;
 		}
 		else
 		{
-			$winelist->removeCriteriaBoolean($question->criteria,"no");
+			$winelist->removeCriteriaBoolean($question->criteria,"yes");
 			$nextstep=$question->nextStepNo;
 		}
 

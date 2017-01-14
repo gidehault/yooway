@@ -6,6 +6,7 @@ class Matrix
 {
 	var $matrix;
 	var $winelist;
+	var $questions;
 
 	public function __construct()
 	{
@@ -14,21 +15,23 @@ class Matrix
 			$this->matrix[$i]="";
 
 		$this->winelist=new WineList();
+		$this->questions=new Questions();
 	}
 	/*
 	* retourne le json des directives à envoyer au js
 	*/
 	public function getDirectives() 
 	{
-		$directives=null;
+		$directives = (object) [];
 		foreach($this->matrix as $id=>$case)
 		{
 			if(!isset($case->old))
 			{
-				$directives[$id]=$case;
+				$til="til-".$id;
+				$directives->$til=$case;
 			}
 		}
-		$this->reset();
+		$this->old();
 		return $directives;
 		//return $this->getDirectivesMockup();
 	}
@@ -99,11 +102,18 @@ class Matrix
 	/*
 	* Réinitialise tous les éléments de la matrice en les marquant comme 'vieux'
 	*/
-	public function reset()
+	public function old()
 	{
 		foreach($this->matrix as &$case)
 		{
 			$case->old="ok";
+		}
+	}
+	public function reset()
+	{
+		foreach($this->matrix as &$case)
+		{
+			unset($case->old);
 		}
 	}
 }
