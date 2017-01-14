@@ -70,8 +70,9 @@
                         break;
                     case 'questionWithChoice':
                         $('#' + til).addClass('til').html(
+                            '<div id="' + this.scenario[til].id + '"></div>' +
                             '<div id="type" class="' + this.scenario[til].type + '">' +
-                            '<p id="question">' + this.scenario[til].content + '</p>' +
+                            '<p>' + this.scenario[til].content + '</p>' +
                             '<div class="answer like">' +
                             '<img src="img/left.png" alt="to the left">' +
                             '<p>' + this.scenario[til].left + '</p>' +
@@ -86,6 +87,7 @@
 
                     case 'yesNoQuestion':
                         $('#' + til).addClass('til').html(
+                            '<div id="' + this.scenario[til].id + '"></div>' +
                             '<div id="type" class="' + this.scenario[til].type + '">' +
                             '<p id="question">' + this.scenario[til].content + '</p>' +
                             '<div class="answer like">' +
