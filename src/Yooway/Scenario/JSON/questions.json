@@ -10,7 +10,7 @@
     "type": "yesNoQuestion",
     "content": "Pour l’apéritif ?",
     "criteria": "aperitif",
-    "nextStepYes": "",
+    "nextStepYes": "question3",
     "nextStepNo": "question3"
   },
 

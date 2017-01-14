@@ -38,14 +38,13 @@ class Questions
 		$question=$this->findQuestion($id_question);
 		if($question=="")
 			return null;
-
 		$no="no";
 		$yes="yes";
 		if(isset($question->right))
 			$yes=strtolower($question->right);
 		if(isset($question->left))
 			$no=strtolower($question->left);
-		if($reponse=="yes")
+		if($reponse=="left")
 		{
 			$winelist->removeCriteriaBoolean($question->criteria,$no);
 			$nextstep=$question->nextStepYes;
@@ -56,7 +55,7 @@ class Questions
 			$nextstep=$question->nextStepNo;
 		}
 
-		return $nextstep;
+		return $this->findQuestion($nextstep);
 	}
 
 	/*

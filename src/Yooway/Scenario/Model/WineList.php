@@ -85,6 +85,8 @@ class WineList
 		foreach($this->list as &$wine)
 		{
 			$wine->available=true;
+			unset($wine->old);
+
 		}
 	}
 }

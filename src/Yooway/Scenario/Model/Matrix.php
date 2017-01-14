@@ -118,6 +118,7 @@ class Matrix
 		{
 			unset($case->old);
 		}
+		$this->winelist->reset();
 	}
 }
 
