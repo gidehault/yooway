@@ -4,7 +4,7 @@
     "content": "Vin à boire maintenant ?",
     "criteria": "maintenant",
     "nextStepYes": "question2",
-    "nextStepNo": ""
+    "nextStepNo": "question2"
   },
   "question2": {
     "type": "yesNoQuestion",
@@ -13,15 +13,13 @@
     "nextStepYes": "question3",
     "nextStepNo": "question3"
   },
-
   "question3": {
     "type": "yesNoQuestion",
     "content": "Pour manger ?",
     "criteria": "manger",
     "nextStepYes": "question4",
-    "nextStepNo": ""
+    "nextStepNo": "question9"
     },
-
   "question4": {
     "type": "questionWithChoice",
     "content": "Viande ou poisson ?",
@@ -60,6 +58,22 @@
     "type": "yesNoQuestion",
     "content": "Porc au caramel ?",
     "criteria": "porc caramel",
+    "nextStepYes": "",
+    "nextStepNo": ""
+  },
+  "question9": {
+    "type": "questionWithChoice",
+    "content": "Couleur du vin ?",
+    "criteria": "color",
+    "left": "Red",
+    "right": "White",
+    "nextStepYes": "question10",
+    "nextStepNo": "question10"
+  },
+  "question10": {
+    "type": "yesNoQuestion",
+    "content": "Pour garder en cave ?",
+    "criteria": "cave",
     "nextStepYes": "",
     "nextStepNo": ""
   }

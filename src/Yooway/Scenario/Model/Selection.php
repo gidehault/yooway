@@ -25,11 +25,11 @@ class Selection
 		$var='{
     "type": "list",
     "item": [
-      "plus de 5€",
-      "plus de 10€",
-      "plus de 20€",
-      "plus de 40€",
-      "plus de 100€"
+      "5":"plus de 5€",
+      "10":""plus de 10€",
+      "20":""plus de 20€",
+      "40":""plus de 40€",
+      "100":""plus de 100€"
     ]
   }
 ';
