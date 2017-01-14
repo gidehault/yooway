@@ -43,7 +43,6 @@ class Screen {
         for ( let til in this.scenario) {
             switch (this.scenario[til].type) {
                 case 'wine':
-                    console.log(this.scenario[til]);
                     $('#' + til).addClass('til').html(
                         '<div id="' + this.scenario[til].id +'"></div>'+
                         '<div id="type" class="' + this.scenario[til].type + '">' +
@@ -60,7 +59,7 @@ class Screen {
                         "<div>Je n'aime pas</div>" +
                         "</div>" +
                         '</div>'
-                    );
+                    ).css({top: 0, left: 0}).fadeIn('fast');
                     break;
                 case 'list':
                     let li;
@@ -172,14 +171,12 @@ $(document).ready(function () {
             //$(this).addClass('ontop');
             //Detecte la direction du drag
             if (ui.originalPosition.left > ui.position.left) {
-                console.log(tilId + ' va à gauche, la ref est ' + nom);
                 answer = 'left';
                 //add green color on the til
 
                 move.coloration(tilId, 'left');
 
             } else {
-                console.log(tilId + 'va à droite');
                 answer = 'right';
                 move.coloration(tilId, 'right');
 
