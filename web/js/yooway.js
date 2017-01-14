@@ -63,7 +63,7 @@ class Screen {
                 case 'list':
                     let li = "";
                     for (let key in this.scenario[til].item) {
-                        li += '<li class="list" id="'+ key +'"><div>' + this.scenario[til].item[key] + '</div></li>'
+                        li += '<li class="list" id="'+ this.scenario[til].item[key].price +'"><div>' + this.scenario[til].item[key].libelle + '</div></li>'
                     }
                     $('#' + til).addClass('til select').html('<ul id="list">' + li + ' </ul>')
                     break;
