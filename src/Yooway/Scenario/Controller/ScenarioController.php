@@ -33,7 +33,7 @@ class ScenarioController
         session_start();
 
         // On commence par initialiser l'objet matrix à partir de la session
-        if($request->get('reset')==1)
+        if($request->get('init')==1)
         {
             unset($_SESSION['matrix']);          
         }
@@ -58,8 +58,8 @@ class ScenarioController
         $type=$request->get('type'); // question, wine, selection
 
         // si premier affichage, on force un réinit des éléments de la matrice
-        if($init==1)
-            $matrix->reset();
+        //if($init==1)
+        //    $matrix->reset();
 
         // traitement des informations en entrée, suivant le type de widget qui communique
         if($type=="yesNoQuestion" || $type=="questionWithChoice")

@@ -49,10 +49,10 @@ class Matrix
 			$list=$this->winelist->getList();
 		foreach($this->matrix as $id=>$case)
 		{
-			if($case=="" || $case->type=="wine") // s'il n'y a rien ou si c'est déjà du vin, on peut insérer
+			if($case=="" || ($case!="" && $case->type=="wine")) // s'il n'y a rien ou si c'est déjà du vin, on peut insérer
 			{	
 				$wine=array_shift($list);
-				if($wine->id!=$case->id) // pas la peine de le remplacer s'il y est déjà
+				if($case=="" || ($case!="" && $wine->id!=$case->id)) // pas la peine de le remplacer s'il y est déjà
 				{
 					unset($wine->old);
 					$this->matrix[$id]=$wine;
@@ -114,7 +114,8 @@ class Matrix
 	{
 		foreach($this->matrix as &$case)
 		{
-			$case->old="ok";
+			if($case!="")
+				$case->old="ok";
 		}
 	}
 	/*
