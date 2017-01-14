@@ -4,6 +4,7 @@
     "img": "img/riesling.jpg",
     "price": "5,85 €",
     "color": "white",
+    "viande": "poisson",
     "aperitif": "no",
     "maintenant": "yes",
     "cave": "no"
@@ -13,6 +14,7 @@
     "img": "img/lillet.jpg",
     "price": "12,99 €",
     "color": "white",
+    "viande": "poisson",
     "aperitif": "yes",
     "maintenant": "yes",
     "cave": "no"
@@ -23,6 +25,7 @@
     "price": "15,99 €",
     "maintenant": "no",
     "color": "white",
+    "viande": "poisson",
     "aperitif": "no",
     "cave": "yes"
   },
@@ -31,6 +34,7 @@
     "img": "img/dusenbach.jpg",
     "price": "9,00 €",
     "color": "red",
+    "viande": "viande",
     "maintenant": "yes",
     "aperitif": "yes",
     "cave": "no"
@@ -39,7 +43,8 @@
     "nom": "Château Rioublanc",
     "img": "img/rioublanc.jpg",
     "price": "66,00 €",
-    "color": "red",
+    "color": "white",
+    "viande": "poisson",
     "maintenant": "no",
     "aperitif": "no",
     "cave": "yes"
@@ -58,6 +63,7 @@
     "img": "img/chardonnay.jpg",
     "price": "9,85€",
     "maintenant": "yes",
+    "viande": "poisson",
     "color": "white",
     "aperitif": "no",
     "cave": "no"
@@ -67,6 +73,7 @@
     "img": "img/intuition.jpg",
     "price": "23,00 €",
     "color": "red",
+    "viande": "viande",
     "maintenant": "no",
     "aperitif": "no",
     "cave": "no"
@@ -78,6 +85,7 @@
     "color": "rose",
     "maintenant": "yes",
     "aperitif": "no",
+    "viande": "poisson",
     "cave": "no"
   },
   "10": {
@@ -86,6 +94,7 @@
     "price": "9,90 €",
     "maintenant": "yes",
     "color": "red",
+    "viande": "viande",
     "aperitif": "no",
     "cave": "no"
   },
@@ -95,6 +104,7 @@
     "price": "12,90 €",
     "maintenant": "yes",
     "color": "white",
+    "viande": "poisson",
     "aperitif": "yes",
     "cave": "no"
   },
@@ -103,6 +113,7 @@
     "img": "img/gigondas.jpg",
     "price": "19,90 €",
     "maintenant": "yes",
+    "viande": "viande",
     "color": "red",
     "aperitif": "no",
     "cave": "yes"
@@ -112,6 +123,7 @@
     "img": "img/nuits.jpg",
     "price": "149,90 €",
     "maintenant": "yes",
+    "viande": "viande",
     "color": "red",
     "aperitif": "no",
     "cave": "yes"
@@ -131,6 +143,7 @@
     "price": "4,90 €",
     "maintenant": "yes",
     "color": "rose",
+    "viande": "poisson",
     "aperitif": "yes",
     "cave": "no"
   }
