@@ -68,7 +68,7 @@ class Screen {
                     }
                     $('#' + til).addClass('til select').html('<ul id="list">' + li +' </ul>')
                     break;
-                case 'yesNoQuestion':
+                case 'questionWithChoice':
                     $('#' + til).addClass('til').html(
                 '<div id="question1">' +
                     "<p id='question'>Vin à boire maintenant?</p>" +
@@ -156,6 +156,8 @@ $(document).ready(function () {
     let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
     let nom; //nom du produit concerné ou de la question
     let type;
+    let critere;
+    let valeur;
 
     $('.til').draggable({
         axis: 'x',
