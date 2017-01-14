@@ -40,8 +40,11 @@ class Matrix
 	{
 		foreach($this->matrix as $case)
 		{
-			if($case=="" || $case->type=="wine")
-				$newlist[]=array_shift($list);
+			if($case=="" || $case->type=="wine") // on peut insérer à cette case
+			{
+				$newwine=array_shift($list);
+				$newlist[]=$newwine;
+			}
 			else
 				$newlist[]=$case;
 		}
@@ -56,7 +59,7 @@ class Matrix
 		{
 			if($this->findWine($wine->id)==null)
 			{
-				$this->matrix[$til]==$wine;
+				$this->matrix[$til]=$wine;
 				return;
 			}
 		}
@@ -66,7 +69,9 @@ class Matrix
 		foreach($this->matrix as $case)
 		{
 			if($case->type=="wine" && $case->id==$id)
-				return $wine;
+			{
+				return $case;
+			}
 		}
 		return null;
 	}
@@ -95,7 +100,7 @@ class Matrix
 	{
 		foreach($this->matrix as &$case)
 		{
-			$case->old=="ok";
+			$case->old="ok";
 		}
 	}
 }

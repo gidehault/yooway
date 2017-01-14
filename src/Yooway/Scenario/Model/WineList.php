@@ -15,6 +15,7 @@ class WineList
         {
         	$wine->id=$id;
         	$wine->available=true;
+        	$wine->type="wine";
         	$this->list[]=$wine;
         }
 	}

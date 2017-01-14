@@ -22,7 +22,14 @@ class StackTest extends TestCase
         $matrix->pushElement(4,$q);
         $matrix->pushWines($selectionnes);
         $directives=$matrix->getDirectives();
-        print_r($directives);
+        $this->assertEquals(count($directives),9);
+
+        $directives=$matrix->getDirectives();
+        $this->assertEquals(count($directives),0);
+
+        $matrix->pushWine(3,$winelist->getList());
+        $directives=$matrix->getDirectives();
+        $this->assertEquals(count($directives),1);
     }
     public function testQuestions()
     {
