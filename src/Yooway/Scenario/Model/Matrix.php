@@ -6,7 +6,7 @@ class Matrix
 {
 	var $matrix;
 	var $winelist;
-	
+
 	public function __construct()
 	{
 		$this->matrix=array();
@@ -39,8 +39,10 @@ class Matrix
 	/*
 	*	répartit des pinards dans la matrice
 	*/
-	public function pushWines($list) 
+	public function pushWines($list="") 
 	{
+		if($list=="")
+			$list=$this->winelist->getList();
 		foreach($this->matrix as $id=>$case)
 		{
 			if($case=="" || $case->type=="wine") // s'il n'y a rien ou si c'est déjà du vin, on peut insérer
@@ -50,8 +52,10 @@ class Matrix
 	/*
 	* modifie juste un pinard dans une case (la liste est nécessaire pour prendre le premier de la liste qui est non encore utilisé)
 	*/
-	public function pushWine($til,$list) 
+	public function pushWine($til,$list="") 
 	{
+		if($list=="")
+			$list=$this->winelist->getList();
 		foreach($list as $wine)
 		{
 			if($this->findWine($wine->id)==null)

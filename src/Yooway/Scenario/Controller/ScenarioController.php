@@ -33,6 +33,11 @@ class ScenarioController
         if($matrix=="")
         {
             $matrix=new Matrix();
+            // création d'une premiere matrice
+            $questions=new Questions();
+            $matrix->pushElement(4,$questions->findQuestion("question4"));
+            $matrix->pushWines(;
+
             $application['session']->set('matrix',$matrix);
         }
 
@@ -47,20 +52,17 @@ class ScenarioController
         if($type=="question")
         {
             $matrix->winelist->removeCriteriaBoolean($critere,$answer);
-            $list=$matrix->winelist->getList();
-            $matrix->pushWines($list);
+            $matrix->pushWines();
         }
         if($type=="wine")
         {
             $matrix->winelist->removeWine($prodref);
-            $list=$matrix->winelist->getList();
-            $matrix->pushWine($tilId,$list);
+            $matrix->pushWine($tilId);
         }
         if($type=="selection")
         {
             $matrix->winelist->removePrice($valeur);
-            $list=$matrix->winelist->getList();
-            $matrix->pushWines($list);
+            $matrix->pushWines();
         }
         return $matrix->getDirectives();
 

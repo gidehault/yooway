@@ -17,14 +17,14 @@ class StackTest extends TestCase
         $this->assertNotEquals($matrix,"");
 
         $matrix->pushElement(4,$questions->findQuestion("question4"));
-        $matrix->pushWines($matrix->winelist->getList());
+        $matrix->pushWines();
         $directives=$matrix->getDirectives();
         $this->assertEquals(count($directives),9);
 
         $directives=$matrix->getDirectives();
         $this->assertEquals(count($directives),0);
 
-        $matrix->pushWine(3,$winelist->getList());
+        $matrix->pushWine(3);
         $directives=$matrix->getDirectives();
         $this->assertEquals(count($directives),1);
     }
