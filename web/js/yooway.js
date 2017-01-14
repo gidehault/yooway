@@ -63,7 +63,7 @@ class Screen {
                 case 'list':
                     let li = "";
                     for (let key in this.scenario[til].item) {
-                        li += '<li class="list" id="'+ this.scenario[til].item[key] +'"><div>' + this.scenario[til].item[key] + '</div></li>'
+                        li += '<li class="list" id="'+ key +'"><div>' + this.scenario[til].item[key] + '</div></li>'
                     }
                     $('#' + til).addClass('til select').html('<ul id="list">' + li + ' </ul>')
                     break;
@@ -117,7 +117,7 @@ class Connect {
                 url: '/scenario',
                 data: {type: type, prodRef: nom, answer: answer, tilId: tilId, init: 0},
                 success: function (response) {
-                    let screen = new Screen(response)
+                    let screen = new Screen(response);
                     screen.display();
                 }
             })
@@ -126,7 +126,7 @@ class Connect {
                 method: 'POST',
                 url: '/scenario',
                 success: function (response) {
-                    let screen = new Screen(response)
+                    let screen = new Screen(response);
                     screen.display();
                 }
             })
@@ -140,7 +140,7 @@ class Connect {
             url: '/scenario',
             data: 'init=1',
             success: function (response) {
-                let screen = new Screen(response)
+                let screen = new Screen(response);
                 screen.display();
             }
         })
@@ -166,22 +166,25 @@ $(document).ready(function () {
                 alert("Hard Reset effectué")
             }
         })
-    })
+    });
 
+    //Traitement du widget liste
     $('.list').click(function(){
         console.log(this.id);
-        let type = "selection"
+        let type = "list";
         let answer = this.id;
         $.ajax({
             method: 'POST',
             url: '/scenario',
             data: {"answer": answer, "type": type},
             success: function(reponse){
-                console.log('retour selection : ' +reponse)
+                console.log('retour selection : ' + reponse);
+                let screen = new Screen(reponse);
+                screen.display();
             }
 
         })
-    })
+    });
     //Drag des tuiles
     let tilId; //id de la tuile
     let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
