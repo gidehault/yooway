@@ -55,7 +55,10 @@ class Questions
 			$nextstep=$question->nextStepNo;
 		}
 
-		return $this->findQuestion($nextstep);
+		$next=$this->findQuestion($nextstep);
+		if($next=="")
+			$next=Matrix::getBlank();
+		return $next;
 	}
 
 	/*
@@ -63,6 +66,8 @@ class Questions
 	*/
 	public function findQuestion($id_rech)
 	{
+		if($id_rech=="")
+			return null;
 		foreach($this->list as $id=>$question)
 		{
 			if($id==$id_rech)

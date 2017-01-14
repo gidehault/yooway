@@ -53,7 +53,7 @@ class Matrix
 			{	
 				$wine=array_shift($list);
 				if($wine=="")
-					$this->matrix[$id]=$this->getBlank();
+					$this->matrix[$id]=Matrix::getBlank();
 				else if($case=="" || ($case!="" && $wine->id!=$case->id)) // pas la peine de le remplacer s'il y est déjà
 				{
 					unset($wine->old);
@@ -62,7 +62,7 @@ class Matrix
 			}
 		}
 	}
-	private function getBlank()
+	public static function getBlank()
 	{
 		$blank = (object) [];
 		$blank->type="blank";
@@ -111,7 +111,7 @@ class Matrix
 	{
 		foreach($this->matrix as $id=>$case)
 		{
-			if($case->type=="yesNoQuestion")
+			if($case->type=="yesNoQuestion" || $case->type=="questionWithChoice")
 				$this->matrix[$id]=$question;
 		}
 	}
