@@ -33,6 +33,10 @@ class ScenarioController
         session_start();
 
         // On commence par initialiser l'objet matrix à partir de la session
+        if($request->get('reset')==1)
+        {
+            unset($_SESSION['matrix']);          
+        }
         if(!isset($_SESSION['matrix']))
         {
             $matrix=new Matrix();
