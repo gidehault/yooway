@@ -67,7 +67,9 @@ class Questions
 		foreach($this->list as $id=>$question)
 		{
 			if($id==$id_rech)
+			{
 				return $question;
+			}
 		}
 		return null;
 	}

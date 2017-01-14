@@ -38,7 +38,8 @@ class ScenarioController
             $matrix=new Matrix();
             // création d'une premiere matrice
             $matrix->pushElement(2,Selection::getSelection());
-            $matrix->pushElement(3,$matrix->questions->findQuestion("question1"));
+            $question=$matrix->questions->findQuestion("question1");
+            $matrix->pushElement(3,$question);
             $matrix->pushWines();
         }
         else
