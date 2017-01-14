@@ -11,11 +11,13 @@
   },
   "til-2": {
     "type": "list",
-    "item-1": "plus de 5€",
-    "item-2": "plus de 10€",
-    "item-3": "plus de 20€",
-    "item-4": "plus de 40€",
-    "item-5": "plus de 100€"
+    "item": [
+      "plus de 5€",
+      "plus de 10€",
+      "plus de 20€",
+      "plus de 40€",
+      "plus de 100€"
+    ]
   },
   "til-3": {
     "type": "produit",

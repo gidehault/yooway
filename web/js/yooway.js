@@ -32,20 +32,23 @@ class Screen {
      * @param response
      */
     constructor(response) {
-        this.scenario = JSON.parse(response);
-        console.log(this.scenario);
-    }
+
+            this.scenario = JSON.parse(response);
+            console.log(this.scenario);
+        }
+
+
 
     display() {
-        for (let key in this.scenario) {
-            switch (this.scenario[key].type) {
-                case 'produit':
-                    console.log(this.scenario[key]);
-                    $('#' + key).addClass('til').html(
-                        '<div class="' + this.scenario[key].type + '">' +
-                        '<img src="' + this.scenario[key].img + '" alt="illustration">' +
+        for ( let til in this.scenario) {
+            switch (this.scenario[til].type) {
+                case 'wine':
+                    console.log(this.scenario[til]);
+                    $('#' + til).addClass('til').html(
+                        '<div class="' + this.scenario[til].type + '">' +
+                        '<img src="' + this.scenario[til].img + '" alt="illustration">' +
                         '<div class="price">' +
-                        '<p>' + this.scenario[key].price + '</p>' +
+                        '<p>' + this.scenario[til].price + '</p>' +
                         '</div>' +
                         '<div class="answer like">' +
                         '<img src="img/left.png" alt="to the left">' +
@@ -59,10 +62,26 @@ class Screen {
                     );
                     break;
                 case 'list':
-                    $('#' + key).addClass('til');
+                    let li;
+                    for (let key in this.scenario[til].item) {
+                        li += '<li><a href="">' + this.scenario[til].item[key] + '</a></li>'
+                    }
+                    $('#' + til).addClass('til select').html('<ul id="list">' + li +' </ul>')
                     break;
                 case 'yesNoQuestion':
-                    $('#' + key).addClass('til');
+                    $('#' + til).addClass('til').html(
+                '<div id="question1">' +
+                    "<p id='question'>Vin à boire maintenant?</p>" +
+                '<div class="answer like">' +
+                    '<img src="img/left.png" alt="to the left">' +
+                    '<p>Oui</p>' +
+                    '</div>' +
+                    '<div class="answer dislike">' +
+                    '<img src="img/right.png" alt="to the right">' +
+                    '<p>Non</p>' +
+                    '</div>' +
+                    '</div>'
+                )
                     break;
 
             }
@@ -112,8 +131,22 @@ class Connect {
         }
 
     }
+
+    static firstTime(){
+        $.ajax({
+            method: 'POST',
+            url: '/scenario',
+            data: 'init=1',
+            success: function (response) {
+                let screen = new Screen(response)
+                screen.display();
+            }
+        })
+    }
+
+
 }
-Connect.ajax();
+Connect.firstTime();
 
 $(document).ready(function () {
 
@@ -121,7 +154,8 @@ $(document).ready(function () {
 
     let tilId; //id de la tuile
     let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
-    let prodRef; //référence du produit concerné ou de la question
+    let nom; //nom du produit concerné ou de la question
+    let type;
 
     $('.til').draggable({
         axis: 'x',
@@ -129,12 +163,12 @@ $(document).ready(function () {
             let move = new Move();
             //catch name of til
             tilId = $(this).attr('id');
-            prodRef = $('#' + tilId + '>div').attr('id');
+            nom = $('#' + tilId + '>div').attr('id');
             //Met la tuile au dessus
             //$(this).addClass('ontop');
             //Detecte la direction du drag
             if (ui.originalPosition.left > ui.position.left) {
-                console.log(tilId + ' va à gauche, la ref est ' + prodRef);
+                console.log(tilId + ' va à gauche, la ref est ' + nom);
                 answer = 'left';
                 //add green color on the til
 
@@ -153,7 +187,7 @@ $(document).ready(function () {
         stop: function () {
             $('.calque').remove();
             $('#' + tilId).toggle('puff', function () {
-                Connect.ajax(prodRef, answer, tilId);
+                Connect.ajax(type, nom, answer, tilId, critere, valeur);
             });
 
 
