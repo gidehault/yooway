@@ -45,7 +45,8 @@ class Screen {
                 case 'wine':
                     console.log(this.scenario[til]);
                     $('#' + til).addClass('til').html(
-                        '<div class="' + this.scenario[til].type + '">' +
+                        '<div id="' + this.scenario[til].nom +'"></div>'+
+                        '<div id="type" class="' + this.scenario[til].type + '">' +
                         '<img src="' + this.scenario[til].img + '" alt="illustration">' +
                         '<div class="price">' +
                         '<p>' + this.scenario[til].price + '</p>' +
@@ -70,7 +71,7 @@ class Screen {
                     break;
                 case 'questionWithChoice':
                     $('#' + til).addClass('til').html(
-                '<div id="question1">' +
+                '<div id="type" class="' + this.scenario[til].type + '">' +
                     '<p id="question">'+ this.scenario[til].content + '</p>' +
                 '<div class="answer like">' +
                     '<img src="img/left.png" alt="to the left">' +
@@ -108,12 +109,12 @@ class Screen {
 
 }
 class Connect {
-    static ajax(prodRef, answer, tilId) {
-        if (prodRef && answer && tilId) {
+    static ajax(type,nom, answer, tilId) {
+        if (type && answer && tilId) {
             $.ajax({
                 method: 'POST',
                 url: '/scenario',
-                data: {prodRef: prodRef, answer: answer, tilId: tilId},
+                data: {type: type, nom: nom, answer: answer, tilId: tilId},
                 success: function (response) {
                     let screen = new Screen(response)
                     screen.display();
@@ -157,7 +158,7 @@ $(document).ready(function () {
     let nom; //nom du produit concerné ou de la question
     let type;
     let critere;
-    let valeur;
+
 
     $('.til').draggable({
         axis: 'x',
@@ -166,6 +167,7 @@ $(document).ready(function () {
             //catch name of til
             tilId = $(this).attr('id');
             nom = $('#' + tilId + '>div').attr('id');
+            type = $('#' + tilId + ' #type').attr('class');
             //Met la tuile au dessus
             //$(this).addClass('ontop');
             //Detecte la direction du drag
@@ -189,7 +191,7 @@ $(document).ready(function () {
         stop: function () {
             $('.calque').remove();
             $('#' + tilId).toggle('puff', function () {
-                Connect.ajax(type, nom, answer, tilId, critere, valeur);
+                Connect.ajax(type, nom, answer, tilId, critere);
             });
 
 
