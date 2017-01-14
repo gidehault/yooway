@@ -26,7 +26,7 @@ class WineList
 	{
 		foreach($this->list as $wine)
 		{
-			if($wine->available==true)
+			if($wine!="" && $wine->available==true)
 				$selectionne[]=$wine;
 		}
 		return $selectionne;
@@ -38,8 +38,11 @@ class WineList
 	{
 		foreach($this->list as &$wine)
 		{
-			if($wine->$nomcritere==$valeurafiltrer)
+			if(isset($wine->$nomcritere) && $wine->$nomcritere==$valeurafiltrer)
+			{
+//				echo "j'enleve ".$wine->id;
 				$wine->available=false;
+			}
 		}
 	}
 	/*

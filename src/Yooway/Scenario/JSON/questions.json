@@ -2,7 +2,7 @@
   "question1": {
     "type": "yesNoQuestion",
     "content": "Vin à boire maintenant ?",
-    "criteria": "maitenant",
+    "criteria": "maintenant",
     "nextStepYes": "question2",
     "nextStepNo": ""
   },

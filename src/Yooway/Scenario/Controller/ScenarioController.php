@@ -62,7 +62,7 @@ class ScenarioController
             $matrix->reset();
 
         // traitement des informations en entrée, suivant le type de widget qui communique
-        if($type=="yesNoQuestion")
+        if($type=="yesNoQuestion" || $type=="questionWithChoice")
         {
             $nouvellequestion=$matrix->questions->question($prodref,$answer,$matrix->winelist);
             $matrix->changeQuestion($nouvellequestion);

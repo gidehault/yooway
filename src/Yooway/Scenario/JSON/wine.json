@@ -44,7 +44,7 @@
     "img": "img/yquem.jpg",
     "price": "329,00 €",
     "color": "white",
-    "aperitif": ["yes", "no"],
+    "aperitif": "yes",
     "cave": "yes"
   },
   "7": {
@@ -68,7 +68,7 @@
     "img": "img/bandol.jpg",
     "price": "23,80 €",
     "color": "rose",
-    "aperitif": ["yes", "no"],
+    "aperitif": "no",
     "cave": "no"
   },
   "10": {

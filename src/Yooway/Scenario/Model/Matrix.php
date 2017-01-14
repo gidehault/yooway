@@ -25,7 +25,7 @@ class Matrix
 		$directives = (object) [];
 		foreach($this->matrix as $id=>$case)
 		{
-			if(!isset($case->old))
+			if($case!="" && !isset($case->old))
 			{
 				$til="til-".$id;
 				$directives->$til=$case;
@@ -50,7 +50,14 @@ class Matrix
 		foreach($this->matrix as $id=>$case)
 		{
 			if($case=="" || $case->type=="wine") // s'il n'y a rien ou si c'est déjà du vin, on peut insérer
-				$this->matrix[$id]=array_shift($list);
+			{	
+				$wine=array_shift($list);
+				if($wine->id!=$case->id) // pas la peine de le remplacer s'il y est déjà
+				{
+					unset($wine->old);
+					$this->matrix[$id]=$wine;
+				}
+			}
 		}
 	}
 	/*
@@ -64,6 +71,7 @@ class Matrix
 		{
 			if($this->findWine($wine->id)==null)
 			{
+				unset($wine->old);
 				$this->matrix[$til]=$wine;
 				return;
 			}
