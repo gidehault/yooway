@@ -20,7 +20,6 @@
         <div id="til-0"></div>
         <div id="til-1"></div>
         <div id="til-2"></div>
-    </div>
 
 
     <div id="row-2" class="row">
@@ -35,9 +34,17 @@
         <div id="til-8"></div>
     </div>
 </div>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
-<script type="text/javascript" src="js/touch.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="js/touch.js"></script>
 <script type="text/javascript" src="js/yooway.js"></script>
 </body>
 </html>
