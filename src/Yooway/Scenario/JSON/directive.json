@@ -1,12 +1,12 @@
 {
   "til-0": {
     "type": "produit",
-    "img": "img/images-1.jpg",
+    "img": "img/bandol.jpg",
     "price": "5,00€"
   },
   "til-1": {
     "type": "produit",
-    "img": "img/images-2.jpg",
+    "img": "img/coroa.jpg",
     "price": "17,00€"
   },
   "til-2": {
@@ -19,22 +19,22 @@
   },
   "til-3": {
     "type": "produit",
-    "img": "img/images-2.jpg",
+    "img": "img/dusenbach.jpg",
     "price": "24,00€"
   },
   "til-4": {
     "type": "produit",
-    "img": "img/images-2.jpg",
+    "img": "img/intuition.jpg",
     "price": "250,00€"
   },
   "til-5": {
     "type": "produit",
-    "img": "img/images-2.jpg",
+    "img": "img/rioublanc.jpg",
     "price": "60,00€"
   },
   "til-6": {
     "type": "produit",
-    "img": "img/images-2.jpg",
+    "img": "img/riesling.jpg",
     "price": "60,00€"
   },
   "til-7": {
@@ -46,7 +46,7 @@
   },
   "til-8": {
     "type": "produit",
-    "img": "img/images-2.jpg",
+    "img": "img/st-joseph.jpg",
     "price": "85,00€"
   }
 }

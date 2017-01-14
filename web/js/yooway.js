@@ -7,17 +7,16 @@ class Move {
     coloration(tilId, way) {
 
 
-
         let tilIdElmt = $('#' + tilId);
         //debug
         console.log('id de la tuile :' + tilId);
         //si la tuile est déjà coloré lors d'un changement de direction on efface
         // le calque et on laisse faire le reste
-        if (this.way !== way){
+        if (this.way !== way) {
             $('.calque').remove();
         }
 
-        if (!$('#' + tilId + '> div').hasClass('calque')){
+        if (!$('#' + tilId + '> div').hasClass('calque')) {
             tilIdElmt.append("<div class='calque'></div>");
             //color the background of calque div
             this.way = way;
@@ -25,32 +24,45 @@ class Move {
         }
 
 
-
     }
 }
-class Screen
-{
+class Screen {
     /**
      * response contient l'id de til, le type de tuile(question, combo, produit), et le contenu
      * @param response
      */
-    constructor(response)
-    {
+    constructor(response) {
         this.scenario = JSON.parse(response);
         console.log(this.scenario);
     }
 
-    display()
-    {
-        for (let key in this.scenario){
+    display() {
+        for (let key in this.scenario) {
             switch (this.scenario[key].type) {
                 case 'produit':
                     console.log(this.scenario[key]);
                     $('#' + key).addClass('til').html(
                         '<div class="' + this.scenario[key].type + '">' +
-                        '<img src="'+ this.scenario[key].img +'" alt="illustration">' +
+                        '<img src="' + this.scenario[key].img + '" alt="illustration">' +
+                        '<div class="price">' +
+                        '<p>' + this.scenario[key].price + '</p>' +
+                        '</div>' +
+                        '<div class="answer like">' +
+                        '<img src="img/left.png" alt="to the left">' +
+                        "<div>J'aime</div>" +
+                        "</div>" +
+                        '<div class="answer dislike">' +
+                        '<img src="img/right.png" alt="to the right">' +
+                        "<div>Je n'aime pas</div>" +
+                        "</div>" +
                         '</div>'
                     );
+                    break;
+                case 'list':
+                    $('#' + key).addClass('til');
+                    break;
+                case 'yesNoQuestion':
+                    $('#' + key).addClass('til');
                     break;
 
             }
@@ -58,14 +70,9 @@ class Screen
         }
 
 
-
-
-
-
     }
 
-    question()
-    {
+    question() {
         let questionDivELmt = $('#' + this.scenario.til);
 
         $('#question').text(this.scenario.scenario);
@@ -74,8 +81,7 @@ class Screen
         $('.calque').remove();
         questionDivELmt.css({top: 0, left: 0}).fadeIn('fast');
 
-        if (this.scenario.action)
-        {
+        if (this.scenario.action) {
             console.log('#' + this.scenario.action.til + ' #illustration');
             $('#' + this.scenario.action.til + '#illustration').attr('src', this.scenario.action.illustration)
         }
@@ -84,7 +90,7 @@ class Screen
 }
 class Connect {
     static ajax(prodRef, answer, tilId) {
-        if (prodRef && answer && tilId){
+        if (prodRef && answer && tilId) {
             $.ajax({
                 method: 'POST',
                 url: '/scenario',
@@ -94,7 +100,7 @@ class Connect {
                     screen.display();
                 }
             })
-        }else {
+        } else {
             $.ajax({
                 method: 'POST',
                 url: '/scenario',
@@ -107,13 +113,11 @@ class Connect {
 
     }
 }
-
-
-
+Connect.ajax();
 
 $(document).ready(function () {
 
-    Connect.ajax();
+
 
     let tilId; //id de la tuile
     let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
@@ -125,7 +129,7 @@ $(document).ready(function () {
             let move = new Move();
             //catch name of til
             tilId = $(this).attr('id');
-            prodRef = $('#' +tilId + '>div').attr('id');
+            prodRef = $('#' + tilId + '>div').attr('id');
             //Met la tuile au dessus
             //$(this).addClass('ontop');
             //Detecte la direction du drag
@@ -148,7 +152,7 @@ $(document).ready(function () {
         zIndex: 100,
         stop: function () {
             $('.calque').remove();
-            $('#' + tilId).toggle('puff', function(){
+            $('#' + tilId).toggle('puff', function () {
                 Connect.ajax(prodRef, answer, tilId);
             });
 
