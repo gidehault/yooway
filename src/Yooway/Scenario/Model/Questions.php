@@ -40,10 +40,10 @@ class Questions
 			return null;
 		$no="no";
 		$yes="yes";
-		//if(isset($question->right))
-		//	$yes=strtolower($question->right);
-		//if(isset($question->left))
-		//	$no=strtolower($question->left);
+		if(isset($question->right))
+			$no=strtolower($question->right);
+		if(isset($question->left))
+			$yes=strtolower($question->left);
 		if($reponse=="left")
 		{
 			$winelist->removeCriteriaBoolean($question->criteria,$no);
