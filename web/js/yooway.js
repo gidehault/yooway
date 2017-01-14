@@ -1,7 +1,6 @@
 /**
  * yooway.js
  */
-"use strict";
 
 class Move {
 
@@ -69,7 +68,7 @@ class Screen {
                     $('#' + til).addClass('til select').html('<ul id="list">' + li + ' </ul>')
                     break;
                 case 'questionWithChoice':
-                    $('#' + til).addClass('til').html(
+                    $('#' + til).addClass('til yooway-question').html(
                         '<div id="' + this.scenario[til].id + '"></div>' +
                         '<div id="type" class="' + this.scenario[til].type + '">' +
                         '<p>' + this.scenario[til].content + '</p>' +
@@ -86,7 +85,7 @@ class Screen {
                     break;
 
                 case 'yesNoQuestion':
-                    $('#' + til).addClass('til').html(
+                    $('#' + til).addClass('til yooway-question').html(
                         '<div id="' + this.scenario[til].id + '"></div>' +
                         '<div id="type" class="' + this.scenario[til].type + '">' +
                         '<p id="question">' + this.scenario[til].content + '</p>' +
@@ -150,9 +149,13 @@ class Connect {
 
 }
 
+Connect.firstTime();
+
 $(document).ready(function () {
 
-    Connect.firstTime();
+
+
+    //Bouton hard reset Reset
     $('#row-3').after('<button id="reset">Reset</button>');
     $('#reset').click(function () {
         $.ajax({
@@ -164,6 +167,8 @@ $(document).ready(function () {
             }
         })
     })
+
+    //Drag des tuiles
     let tilId; //id de la tuile
     let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
     let nom; //nom du produit concerné ou de la question
