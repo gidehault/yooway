@@ -40,7 +40,6 @@ class WineList
 		{
 			if(isset($wine->$nomcritere) && $wine->$nomcritere==$valeurafiltrer)
 			{
-//				echo "j'enleve ".$wine->id;
 				$wine->available=false;
 			}
 		}

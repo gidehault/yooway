@@ -49,16 +49,24 @@ class Matrix
 			$list=$this->winelist->getList();
 		foreach($this->matrix as $id=>$case)
 		{
-			if($case=="" || ($case!="" && $case->type=="wine")) // s'il n'y a rien ou si c'est déjà du vin, on peut insérer
+			if($case=="" || ($case!="" && ($case->type=="wine" || $case->type=="blank"))) // s'il n'y a rien ou si c'est déjà du vin, on peut insérer
 			{	
 				$wine=array_shift($list);
-				if($case=="" || ($case!="" && $wine->id!=$case->id)) // pas la peine de le remplacer s'il y est déjà
+				if($wine=="")
+					$this->matrix[$id]=$this->getBlank();
+				else if($case=="" || ($case!="" && $wine->id!=$case->id)) // pas la peine de le remplacer s'il y est déjà
 				{
 					unset($wine->old);
 					$this->matrix[$id]=$wine;
 				}
 			}
 		}
+	}
+	private function getBlank()
+	{
+		$blank = (object) [];
+		$blank->type="blank";
+		return $blank;
 	}
 	/*
 	* modifie juste un pinard dans une case (la liste est nécessaire pour prendre le premier de la liste qui est non encore utilisé)

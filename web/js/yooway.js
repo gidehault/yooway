@@ -41,6 +41,13 @@ class Screen {
     display() {
         for (let til in this.scenario) {
             switch (this.scenario[til].type) {
+                case 'blank':
+                    $('#' + til).addClass('til').html(
+                        '<div id="' + this.scenario[til].id + '"></div>' +
+                        '<div id="type" class="' + this.scenario[til].type + '">' +
+                        '</div>'
+                    ).css({top: 0, left: 0}).fadeIn('fast');
+                    break;
                 case 'wine':
                     $('#' + til).addClass('til').html(
                         '<div id="' + this.scenario[til].id + '"></div>' +
