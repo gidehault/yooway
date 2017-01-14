@@ -12,6 +12,7 @@ namespace Yooway\Scenario\Controller;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Yooway\Scenario\Model\Matrix;
+use Yooway\Scenario\Model\Questions;
 use Yooway\Scenario\Model\ScenarioModel;
 
 /**
@@ -29,16 +30,17 @@ class ScenarioController
      */
     public function scenarioAction(Request $request, Application $application)
     {
-        $matrix=$application['session']->get('matrix');
+        //$request->get('session')->start();
+        //$matrix=$request->get('session')->get('matrix');
         if($matrix=="")
         {
             $matrix=new Matrix();
             // création d'une premiere matrice
             $questions=new Questions();
             $matrix->pushElement(4,$questions->findQuestion("question4"));
-            $matrix->pushWines(;
+            $matrix->pushWines();
 
-            $application['session']->set('matrix',$matrix);
+            //$request->get('session')->set('matrix',$matrix);
         }
 
         $prodref=$request->get('prodRef');
@@ -64,7 +66,7 @@ class ScenarioController
             $matrix->winelist->removePrice($valeur);
             $matrix->pushWines();
         }
-        return $matrix->getDirectives();
+        return json_encode($matrix->getDirectives());
 
 //        $directive = file_get_contents(__DIR__ . '/../JSON/directive.json');
 //      return $directive;
