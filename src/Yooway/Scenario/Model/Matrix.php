@@ -5,12 +5,15 @@ namespace Yooway\Scenario\Model;
 class Matrix
 {
 	var $matrix;
-
+	var $winelist;
+	
 	public function __construct()
 	{
 		$this->matrix=array();
 		for($i=0;$i<9;$i++)
 			$this->matrix[$i]="";
+
+		$this->winelist=new WineList();
 	}
 	/*
 	* retourne le json des directives à envoyer au js
@@ -38,17 +41,11 @@ class Matrix
 	*/
 	public function pushWines($list) 
 	{
-		foreach($this->matrix as $case)
+		foreach($this->matrix as $id=>$case)
 		{
-			if($case=="" || $case->type=="wine") // on peut insérer à cette case
-			{
-				$newwine=array_shift($list);
-				$newlist[]=$newwine;
-			}
-			else
-				$newlist[]=$case;
+			if($case=="" || $case->type=="wine") // s'il n'y a rien ou si c'est déjà du vin, on peut insérer
+				$this->matrix[$id]=array_shift($list);
 		}
-		$this->matrix=$newlist;
 	}
 	/*
 	* modifie juste un pinard dans une case (la liste est nécessaire pour prendre le premier de la liste qui est non encore utilisé)
@@ -84,12 +81,13 @@ class Matrix
 	}
 	/*
 	* met à jour le bloc question
+	* (en prenant l'emplacement du premier bloc question qu'il trouve...)
 	*/
 	public function changeQuestion($question) 
 	{
 		foreach($this->matrix as $id=>$case)
 		{
-			if($case->type=="question")
+			if($case->type=="yesNoQuestion")
 				$this->matrix[$id]=$question;
 		}
 	}

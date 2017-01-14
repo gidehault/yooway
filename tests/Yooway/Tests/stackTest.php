@@ -12,15 +12,12 @@ class StackTest extends TestCase
 {
     public function testMatrix()
     {
+        $questions=new Questions();
         $matrix=new Matrix();
         $this->assertNotEquals($matrix,"");
-        $questions=new Questions();
-        $q=$questions->findQuestion("question4");
-        $winelist=new WineList();
-        $selectionnes=$winelist->getList();
 
-        $matrix->pushElement(4,$q);
-        $matrix->pushWines($selectionnes);
+        $matrix->pushElement(4,$questions->findQuestion("question4"));
+        $matrix->pushWines($matrix->winelist->getList());
         $directives=$matrix->getDirectives();
         $this->assertEquals(count($directives),9);
 
