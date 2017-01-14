@@ -61,9 +61,9 @@ class Screen {
                     ).css({top: 0, left: 0}).fadeIn('fast');
                     break;
                 case 'list':
-                    let li;
+                    let li = "";
                     for (let key in this.scenario[til].item) {
-                        li += '<li><a href="">' + this.scenario[til].item[key] + '</a></li>'
+                        li += '<li class="list" id="'+ this.scenario[til].item[key] +'"><div>' + this.scenario[til].item[key] + '</div></li>'
                     }
                     $('#' + til).addClass('til select').html('<ul id="list">' + li + ' </ul>')
                     break;
@@ -168,10 +168,24 @@ $(document).ready(function () {
         })
     })
 
+    $('.list').click(function(){
+        console.log(this.id);
+        let type = "selection"
+        let answer = this.id;
+        $.ajax({
+            method: 'POST',
+            url: '/scenario',
+            data: {"answer": answer, "type": type},
+            success: function(reponse){
+                console.log('retour selection : ' +reponse)
+            }
+
+        })
+    })
     //Drag des tuiles
     let tilId; //id de la tuile
     let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
-    let nom; //nom du produit concerné ou de la question
+    let prodRef; //nom du produit concerné ou de la question
     let type;
     let critere;
 
@@ -182,7 +196,7 @@ $(document).ready(function () {
             let move = new Move();
             //catch name of til
             tilId = $(this).attr('id');
-            nom = $('#' + tilId + '>div').attr('id');
+            prodRef = $('#' + tilId + '>div').attr('id');
             type = $('#' + tilId + ' #type').attr('class');
             //Met la tuile au dessus
             //$(this).addClass('ontop');
@@ -205,7 +219,7 @@ $(document).ready(function () {
         stop: function () {
             $('.calque').remove();
             $('#' + tilId).toggle('puff', function () {
-                Connect.ajax(type, nom, answer, tilId, critere);
+                Connect.ajax(type, prodRef, answer, tilId, critere);
             });
 
 

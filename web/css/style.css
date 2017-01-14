@@ -149,8 +149,8 @@ Til Select
     padding-left: 0;
 }
 
-.select a {
-    text-decoration: none;
+.select div {
+    cursor: pointer;
 
 }
 
