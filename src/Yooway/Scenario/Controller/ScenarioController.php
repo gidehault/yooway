@@ -30,17 +30,21 @@ class ScenarioController
      */
     public function scenarioAction(Request $request, Application $application)
     {
+        session_start();
         //$request->get('session')->start();
         //$matrix=$request->get('session')->get('matrix');
-        if($matrix=="")
+        if(!isset($_SESSION['matrix']))
         {
             $matrix=new Matrix();
             // création d'une premiere matrice
             $questions=new Questions();
             $matrix->pushElement(4,$questions->findQuestion("question4"));
             $matrix->pushWines();
-
             //$request->get('session')->set('matrix',$matrix);
+        }
+        else
+        {
+            $matrix=$_SESSION['matrix'];
         }
 
         $prodref=$request->get('prodRef');
@@ -66,6 +70,7 @@ class ScenarioController
             $matrix->winelist->removePrice($valeur);
             $matrix->pushWines();
         }
+        $_SESSION['matrix']=$matrix;
         return json_encode($matrix->getDirectives());
 
 //        $directive = file_get_contents(__DIR__ . '/../JSON/directive.json');

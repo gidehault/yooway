@@ -20,9 +20,10 @@ class Matrix
 	*/
 	public function getDirectives() 
 	{
+		$directives=null;
 		foreach($this->matrix as $id=>$case)
 		{
-			if($case->old!="ok")
+			if(!isset($case->old))
 			{
 				$directives[$id]=$case;
 			}
