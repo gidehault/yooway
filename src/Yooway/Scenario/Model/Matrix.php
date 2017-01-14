@@ -106,7 +106,7 @@ class Matrix
 	{
 		foreach($this->matrix as &$case)
 		{
-			$case->old="ok";
+			//$case->old="ok";
 		}
 	}
 	/*

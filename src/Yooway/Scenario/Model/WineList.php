@@ -71,7 +71,9 @@ class WineList
 		{
 			if($wine->id==$id)
 			{
+				unset($wine->old);
 				$wine->available=false;
+				return;
 			}
 		}
 	}

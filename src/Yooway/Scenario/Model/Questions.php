@@ -24,6 +24,7 @@ class Questions
         $questions=json_decode($questions);
         foreach($questions as $id=>$question)
         {
+        	$question->id=$id;
         	$this->list[$id]=$question;
         }
 	}
