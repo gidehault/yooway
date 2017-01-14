@@ -9,7 +9,7 @@
     "img": "img/images-2.jpg",
     "price": "17,00€"
   },
-  "til-3": {
+  "til-2": {
     "type": "list",
     "item-1": "plus de 5€",
     "item-2": "plus de 10€",
@@ -17,15 +17,20 @@
     "item-4": "plus de 40€",
     "item-5": "plus de 100€"
   },
-  "til-4": {
+  "til-3": {
     "type": "produit",
     "img": "img/images-2.jpg",
     "price": "24,00€"
   },
-  "til-5": {
+  "til-4": {
     "type": "produit",
     "img": "img/images-2.jpg",
     "price": "250,00€"
+  },
+  "til-5": {
+    "type": "produit",
+    "img": "img/images-2.jpg",
+    "price": "60,00€"
   },
   "til-6": {
     "type": "produit",

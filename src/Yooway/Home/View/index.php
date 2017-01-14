@@ -16,136 +16,22 @@
 
 
     <div id="row-1" class="row">
-        <div id="til-0" class="til draggable ui-widget-content">
-            <div id="1">
-                <img id="illustration "src="img/images-1.jpg" alt="">
-                <div class="price">
-                    <p id="prix">5,00 €</p>
-                </div>
-                <div class="answer like">
-                    <img src="img/left.png" alt="to the left">
-                    <div>J'aime</div>
-                </div>
-                <div class="answer dislike">
-                    <img src="img/right.png" alt="to the right">
-                    <div>Je n'aime pas</div>
-                </div>
-            </div>
-        </div>
-        <div id="til-1" class="til draggable ui-widget-content">
-            <img src="img/images-2.jpg" alt="">
-            <div class="price">
-                <p>17,00 €</p>
-            </div>
-            <div class="answer like">
-                <img src="img/left.png" alt="to the left">
-                J'aime
-            </div>
-            <div class="answer dislike">
-                <img src="img/right.png" alt="to the right">
-                Je n'aime pas
-            </div>
-        </div>
-        <div id="til-2" class="til select">
-            <ul id="list">
-                <li><a href="">plus de 5€</a></li>
-                <li><a href="">plus de 10€</a></li>
-                <li><a href="">plus de 20€</a></li>
-                <li><a href="">plus de 40€</a></li>
-                <li><a href="">plus de 100€</a></li>
-            </ul>
-        </div>
+        <div id="til-0"></div>
+        <div id="til-1"></div>
+        <div id="til-2"></div>
     </div>
 
 
     <div id="row-2" class="row">
-        <div id="til-3" class="til draggable ui-widget-content">
-            <img src="img/images.jpg" alt="">
-            <div class="price">
-                <p>24,00 €</p>
-            </div>
-            <div class="answer like">
-                <img src="img/left.png" alt="to the left">
-                J'aime
-            </div>
-            <div class="answer dislike">
-                <img src="img/right.png" alt="to the right">
-                Je n'aime pas
-            </div>
-        </div>
-        <div id="til-4" class="til draggable ui-widget-content">
-            <img src="img/imgres-1.jpg" alt="">
-            <div class="price">
-                <p>250,00 €</p>
-            </div>
-            <div class="answer like">
-                <img src="img/left.png" alt="to the left">
-                J'aime
-            </div>
-            <div class="answer dislike">
-                <img src="img/right.png" alt="to the right">
-                Je n'aime pas
-            </div>
-        </div>
-
-        <div id="til-5" class="til draggable ui-widget-content">
-            <img src="img/imgres-2.jpg" alt="">
-            <div class="price">
-                <p>60,00 €</p>
-            </div>
-            <div class="answer like">
-                <img src="img/left.png" alt="to the left">
-                J'aime
-            </div>
-            <div class="answer dislike">
-                <img src="img/right.png" alt="to the right">
-                Je n'aime pas
-            </div>
-        </div>
+        <div id="til-3"></div>
+        <div id="til-4"></div>
+        <div id="til-5"></div>
     </div>
 
     <div id="row-3" class="row">
-        <div id="til-6" class="til draggable ui-widget-content">
-            <img src="img/imgres.jpg" alt="">
-            <div class="price">
-                <p>14,00 €</p>
-            </div>
-            <div class="answer like">
-                <img src="img/left.png" alt="to the left">
-                J'aime
-            </div>
-            <div class="answer dislike">
-                <img src="img/right.png" alt="to the right">
-                Je n'aime pas
-            </div>
-        </div>
-        <div id="til-7" class="til yooway-question draggable ui-widget-content">
-            <div id="question1">
-            <p id="question">Vin à boire maintenant?</p>
-            <div class="answer like">
-                <img src="img/left.png" alt="to the left">
-                <p>Oui</p>
-            </div>
-            <div class="answer dislike">
-                <img src="img/right.png" alt="to the right">
-                <p>Non</p>
-            </div>
-            </div>
-        </div>
-        <div id="til-8" class="til draggable ui-widget-content">
-            <img src="img/images-3.jpg" alt="">
-            <div class="price">
-                <p>85,00 €</p>
-            </div>
-            <div class="answer like">
-                <img src="img/left.png" alt="to the left">
-                J'aime
-            </div>
-            <div class="answer dislike">
-                <img src="img/right.png" alt="to the right">
-                Je n'aime pas
-            </div>
-        </div>
+        <div id="til-6"></div>
+        <div id="til-7"></div>
+        <div id="til-8"></div>
     </div>
 </div>
 <script type="text/javascript" src="js/jquery.js"></script>

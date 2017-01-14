@@ -42,10 +42,26 @@ class Screen
 
     display()
     {
-        if (this.scenario.type === 'question')
-        {
-         this.question()
+        for (let key in this.scenario){
+            switch (this.scenario[key].type) {
+                case 'produit':
+                    console.log(this.scenario[key]);
+                    $('#' + key).addClass('til').html(
+                        '<div class="' + this.scenario[key].type + '">' +
+                        '<img src="'+ this.scenario[key].img +'" alt="illustration">' +
+                        '</div>'
+                    );
+                    break;
+
+            }
+
         }
+
+
+
+
+
+
     }
 
     question()
@@ -68,15 +84,27 @@ class Screen
 }
 class Connect {
     static ajax(prodRef, answer, tilId) {
-        $.ajax({
-            method: 'POST',
-            url: '/scenario',
-            data: {prodRef: prodRef, answer: answer, tilId: tilId},
-            success: function (response) {
-                let screen = new Screen(response)
-                screen.display();
-            }
-        })
+        if (prodRef && answer && tilId){
+            $.ajax({
+                method: 'POST',
+                url: '/scenario',
+                data: {prodRef: prodRef, answer: answer, tilId: tilId},
+                success: function (response) {
+                    let screen = new Screen(response)
+                    screen.display();
+                }
+            })
+        }else {
+            $.ajax({
+                method: 'POST',
+                url: '/scenario',
+                success: function (response) {
+                    let screen = new Screen(response)
+                    screen.display();
+                }
+            })
+        }
+
     }
 }
 
@@ -84,6 +112,9 @@ class Connect {
 
 
 $(document).ready(function () {
+
+    Connect.ajax();
+
     let tilId; //id de la tuile
     let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
     let prodRef; //référence du produit concerné ou de la question

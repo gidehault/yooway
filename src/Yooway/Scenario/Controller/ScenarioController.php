@@ -29,9 +29,13 @@ class ScenarioController
      */
     public function scenarioAction(Request $request, Application $application)
     {
-        $matrix = new Matrix();
+        /*$matrix = new Matrix();
 
-        return $matrix->getDirectives();
+        return $matrix->getDirectives();*/
+
+        $directive = file_get_contents(__DIR__ . '/../JSON/directive.json');
+
+        return $directive;
     }
 
 }
