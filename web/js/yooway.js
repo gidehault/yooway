@@ -71,14 +71,14 @@ class Screen {
                 case 'questionWithChoice':
                     $('#' + til).addClass('til').html(
                 '<div id="question1">' +
-                    "<p id='question'>Vin à boire maintenant?</p>" +
+                    '<p id="question">'+ this.scenario[til].content + '</p>' +
                 '<div class="answer like">' +
                     '<img src="img/left.png" alt="to the left">' +
-                    '<p>Oui</p>' +
+                    '<p>'+ this.scenario[til].left + '</p>' +
                     '</div>' +
                     '<div class="answer dislike">' +
                     '<img src="img/right.png" alt="to the right">' +
-                    '<p>Non</p>' +
+                    '<p>'+ this.scenario[til].right + '</p>' +
                     '</div>' +
                     '</div>'
                 )
