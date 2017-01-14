@@ -45,7 +45,7 @@ class Screen {
                 case 'wine':
                     console.log(this.scenario[til]);
                     $('#' + til).addClass('til').html(
-                        '<div id="' + this.scenario[til].nom +'"></div>'+
+                        '<div id="' + this.scenario[til].id +'"></div>'+
                         '<div id="type" class="' + this.scenario[til].type + '">' +
                         '<img src="' + this.scenario[til].img + '" alt="illustration">' +
                         '<div class="price">' +
@@ -114,7 +114,7 @@ class Connect {
             $.ajax({
                 method: 'POST',
                 url: '/scenario',
-                data: {type: type, nom: nom, answer: answer, tilId: tilId},
+                data: {type: type, prodRef: nom, answer: answer, tilId: tilId, init: 0},
                 success: function (response) {
                     let screen = new Screen(response)
                     screen.display();
