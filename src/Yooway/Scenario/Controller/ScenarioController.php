@@ -49,6 +49,7 @@ class ScenarioController
         $prodref=$request->get('prodRef');
         $answer=$request->get('answer');
         $tilId=$request->get('tilId');
+        $tilId=substr($tilId,strlen($tilId)-1);
         $type=$request->get('type'); // question, wine, selection
 
         // si premier affichage, on force un réinit des éléments de la matrice
