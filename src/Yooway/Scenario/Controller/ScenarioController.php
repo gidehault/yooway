@@ -13,6 +13,7 @@ use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Yooway\Scenario\Model\Matrix;
 use Yooway\Scenario\Model\Questions;
+use Yooway\Scenario\Model\Selection;
 use Yooway\Scenario\Model\ScenarioModel;
 
 /**
@@ -31,27 +32,23 @@ class ScenarioController
     public function scenarioAction(Request $request, Application $application)
     {
         session_start();
-        //$request->get('session')->start();
-        //$matrix=$request->get('session')->get('matrix');
+
         if(!isset($_SESSION['matrix']))
         {
             $matrix=new Matrix();
             // création d'une premiere matrice
-            $matrix->pushElement(4,$matrix->questions->findQuestion("question4"));
+            $matrix->pushElement(2,Selection::getSelection());
+            $matrix->pushElement(3,$matrix->questions->findQuestion("question4"));
             $matrix->pushWines();
-            //$request->get('session')->set('matrix',$matrix);
         }
         else
-        {
             $matrix=$_SESSION['matrix'];
-        }
 
         $init=$request->get('init');
         $prodref=$request->get('prodRef');
         $answer=$request->get('answer');
         $tilId=$request->get('tilId');
-        $type=""; // question, wine, selection
-        $valeur=""; // valeur de sélection
+        $type=$request->get('type'); // question, wine, selection
 
         if($init==1)
             $matrix->reset();
@@ -68,14 +65,12 @@ class ScenarioController
         }
         if($type=="selection")
         {
-            $matrix->winelist->removePrice($valeur);
+            $matrix->winelist->removePrice($answer);
             $matrix->pushWines();
         }
+
         $_SESSION['matrix']=$matrix;
         return json_encode($matrix->getDirectives());
-
-//        $directive = file_get_contents(__DIR__ . '/../JSON/directive.json');
-//      return $directive;
     }
 
 }

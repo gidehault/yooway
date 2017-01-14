@@ -109,6 +109,9 @@ class Matrix
 			$case->old="ok";
 		}
 	}
+	/*
+	* Réinitialise tous les éléments de la matrice afin qu'ils apparaissent tous lors du prochain appel à getDirectives()
+	*/
 	public function reset()
 	{
 		foreach($this->matrix as &$case)

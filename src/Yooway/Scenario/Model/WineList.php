@@ -57,7 +57,10 @@ class WineList
 	}
 	private function convert($text)
 	{
-		return 0;
+		$text=str_replace(",",".",$text);
+		$text=str_replace("€","",$text);
+
+		return intval($text);
 	}
 	/*
 	* suppression d'un vin en particulier
