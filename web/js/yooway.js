@@ -141,7 +141,11 @@ class Connect {
 
     }
 
-    static firstTime() {
+    /**
+     * Lance le premier appel AJAX pour hydrater la page
+     * @param next callback charge le reste du yooway.js après la fin du chargement de la page.
+     */
+    static firstTime(next) {
         $.ajax({
             method: 'POST',
             url: '/scenario',
@@ -149,6 +153,7 @@ class Connect {
             success: function (response) {
                 let screen = new Screen(response);
                 screen.display();
+                next();
             }
         })
     }
@@ -156,89 +161,91 @@ class Connect {
 
 }
 
-Connect.firstTime();
-
-$(document).ready(function () {
+Connect.firstTime(function() {
 
 
+    $(document).ready(function () {
 
-    //Bouton hard reset Reset
-    $('#row-3').after('<button id="reset">Reset</button>');
-    $('#reset').click(function () {
-        $.ajax({
-            method: 'POST',
-            url: '/scenario',
-            data: 'reset=1',
-            success: function () {
-                alert("Hard Reset effectué")
+
+
+        //Bouton hard reset Reset
+        $('#row-3').after('<button id="reset">Reset</button>');
+        $('#reset').click(function () {
+            $.ajax({
+                method: 'POST',
+                url: '/scenario',
+                data: 'reset=1',
+                success: function () {
+                    alert("Hard Reset effectué")
+                }
+            })
+        });
+
+        //Traitement du widget liste
+        $('.list').click(function () {
+            console.log(this.id);
+            let type = "list";
+            let answer = this.id;
+            $.ajax({
+                method: 'POST',
+                url: '/scenario',
+                data: {"answer": answer, "type": type},
+                success: function (reponse) {
+                    console.log('retour selection : ' + reponse);
+                    let screen = new Screen(reponse);
+                    screen.display();
+                }
+
+            })
+        });
+        //Drag des tuiles
+        let tilId; //id de la tuile
+        let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
+        let prodRef; //nom du produit concerné ou de la question
+        let type;
+        let critere;
+
+
+        $('.til').draggable({
+            axis: 'x',
+            drag: function (event, ui) {
+                let move = new Move();
+                //catch name of til
+                tilId = $(this).attr('id');
+                prodRef = $('#' + tilId + '>div').attr('id');
+                type = $('#' + tilId + ' #type').attr('class');
+                //Met la tuile au dessus
+                //$(this).addClass('ontop');
+                //Detecte la direction du drag
+                if (ui.originalPosition.left > ui.position.left) {
+                    answer = 'left';
+                    //add green color on the til
+
+                    move.coloration(tilId, 'left');
+
+                } else {
+                    answer = 'right';
+                    move.coloration(tilId, 'right');
+
+                }
+
+            },
+            handle: 'img, p, li',
+            zIndex: 100,
+            stop: function () {
+                $('.calque').remove();
+                $('#' + tilId).toggle('puff', function () {
+                    Connect.ajax(type, prodRef, answer, tilId, critere);
+                });
+
+
             }
+        });
+
+
+        //Liste
+        $('#list').draggable({
+            axis: 'y'
         })
     });
-
-    //Traitement du widget liste
-    $('.list').click(function(){
-        console.log(this.id);
-        let type = "list";
-        let answer = this.id;
-        $.ajax({
-            method: 'POST',
-            url: '/scenario',
-            data: {"answer": answer, "type": type},
-            success: function(reponse){
-                console.log('retour selection : ' + reponse);
-                let screen = new Screen(reponse);
-                screen.display();
-            }
-
-        })
-    });
-    //Drag des tuiles
-    let tilId; //id de la tuile
-    let answer; //réponse donné par le sens du drag (vers la gauche : oui/j'aime, vers la droite: non/je n'aime pas
-    let prodRef; //nom du produit concerné ou de la question
-    let type;
-    let critere;
-
-
-    $('.til').draggable({
-        axis: 'x',
-        drag: function (event, ui) {
-            let move = new Move();
-            //catch name of til
-            tilId = $(this).attr('id');
-            prodRef = $('#' + tilId + '>div').attr('id');
-            type = $('#' + tilId + ' #type').attr('class');
-            //Met la tuile au dessus
-            //$(this).addClass('ontop');
-            //Detecte la direction du drag
-            if (ui.originalPosition.left > ui.position.left) {
-                answer = 'left';
-                //add green color on the til
-
-                move.coloration(tilId, 'left');
-
-            } else {
-                answer = 'right';
-                move.coloration(tilId, 'right');
-
-            }
-
-        },
-        handle: 'img, p, li',
-        zIndex: 100,
-        stop: function () {
-            $('.calque').remove();
-            $('#' + tilId).toggle('puff', function () {
-                Connect.ajax(type, prodRef, answer, tilId, critere);
-            });
-
-
-        }
-    });
-
-
-    //Liste
-    $('#list').draggable({
-        axis: 'y'
-    })
 });
