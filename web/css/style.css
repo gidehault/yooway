@@ -24,10 +24,9 @@ body {
     margin: auto;
 }
 
-.row{
+.row {
     height: 341px;
 }
-
 
 /**
  * Til
@@ -37,16 +36,21 @@ body {
     position: relative;
     width: 246px;
     height: 331px;
-    -webkit-box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
-    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12),
+    0 2px 2px 0 rgba(0, 0, 0, 0.24);
     text-align: center;
     margin: 2px;
     display: inline-block;
     vertical-align: top;
+    transition: box-shadow 0.2s ease;
 }
 
-.til-empty{
+.til:hover{
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12),
+    0 8px 8px 0 rgba(0, 0, 0, 0.24);
+}
+
+.til-empty {
     width: 246px;
     height: 331px;
     margin: 2px;
@@ -57,7 +61,6 @@ body {
 .til p {
     padding-top: 50%;
 }
-
 
 /*
 On select design
@@ -163,13 +166,14 @@ Iphone 6S
  */
 @media screen and (max-width: 414px) {
 
-    .container{
+    .container {
         width: 414px;
     }
 
     .row {
         height: 242px;
     }
+
     div {
         font-size: 0.9em;
     }
@@ -179,7 +183,7 @@ Iphone 6S
         height: 235px;
     }
 
-    .til-empty{
+    .til-empty {
         width: 125px;
         height: 235px;
         margin: 2px;
@@ -187,39 +191,38 @@ Iphone 6S
         vertical-align: top;
     }
 
-
     .til img {
         height: 100px;
         margin-top: 50%;
     }
 
-    .answer img{
+    .answer img {
         height: 20px;
     }
 
-    .like{
+    .like {
         left: 0;
     }
-/*
-    .dislike{
-        right: 0;
-    }
-*/
-   /*
-   .dislike img{
 
-        right: 0;
-    }
+    /*
+        .dislike{
+            right: 0;
+        }
     */
+    /*
+    .dislike img{
 
-    .price{
+         right: 0;
+     }
+     */
+    .price {
         left: 77px;
         bottom: 160px;
         width: 48px;
         height: 48px;
     }
 
-    .calque{
+    .calque {
         width: 125px;
         height: 235px;
     }
