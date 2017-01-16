@@ -52,17 +52,17 @@ class Screen {
                     $('#' + til).addClass('til').html(
                         '<div id="' + this.scenario[til].id + '"></div>' +
                         '<div id="type" class="' + this.scenario[til].type + '">' +
-                        '<img src="' + this.scenario[til].img + '" alt="illustration">' +
+                        '<img  src="' + this.scenario[til].img + '" alt="illustration">' +
                         '<div class="price">' +
                         '<p>' + this.scenario[til].price + '</p>' +
                         '</div>' +
                         '<div class="answer like">' +
                         '<img src="img/left.png" alt="to the left">' +
-                        "<div>J'aime</div>" +
+                        "<div>Je n'aime pas</div>" +
                         "</div>" +
                         '<div class="answer dislike">' +
                         '<img src="img/right.png" alt="to the right">' +
-                        "<div>Je n'aime pas</div>" +
+                        "<div>J'aime</div>" +
                         "</div>" +
                         '</div>'
                     ).css({top: 0, left: 0}).fadeIn('fast');
@@ -98,11 +98,11 @@ class Screen {
                         '<p id="question">' + this.scenario[til].content + '</p>' +
                         '<div class="answer like">' +
                         '<img src="img/left.png" alt="to the left">' +
-                        '<p>yes</p>' +
+                        '<p>Non</p>' +
                         '</div>' +
                         '<div class="answer dislike">' +
                         '<img src="img/right.png" alt="to the right">' +
-                        '<p>no</p>' +
+                        '<p>Oui</p>' +
                         '</div>' +
                         '</div>'
                     ).css({top: 0, left: 0}).fadeIn('fast');

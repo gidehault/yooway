@@ -79,12 +79,12 @@ On select design
 }
 
 .left {
-    background: #93ff7a;
+    background: red;
     opacity: 0.5;
 }
 
 .right {
-    background: red;
+    background: #93ff7a;
     opacity: 0.5;
 }
 
