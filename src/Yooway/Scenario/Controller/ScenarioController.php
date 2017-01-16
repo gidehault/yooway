@@ -30,14 +30,16 @@ class ScenarioController
      */
     public function scenarioAction(Request $request, Application $application)
     {
-        session_start();
 
+        $session = $application['session'];
+        $session->start();
         // On commence par initialiser l'objet matrix à partir de la session
         if($request->get('init')==1)
         {
-            unset($_SESSION['matrix']);          
+            //unset($_SESSION['matrix']);
+            $session->invalidate();
         }
-        if(!isset($_SESSION['matrix']))
+        if(!$session->get('matrix'))
         {
             $matrix=new Matrix();
             // création d'une premiere matrice
@@ -47,7 +49,7 @@ class ScenarioController
             $matrix->pushWines();
         }
         else
-            $matrix=$_SESSION['matrix'];
+            $matrix=$session->get('matrix');
 
         // paramètres en provenance du front
         $init=$request->get('init');
@@ -79,7 +81,7 @@ class ScenarioController
         }
 
         // c'est fini, on stocke la matrice revue en session, et on génère les directives qui sont renvoyées au client
-        $_SESSION['matrix']=$matrix;
+        $session->set('matrix', $matrix);
         return json_encode($matrix->getDirectives());
     }
 

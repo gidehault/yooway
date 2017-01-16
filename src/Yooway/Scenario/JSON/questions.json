@@ -23,10 +23,10 @@
   "question4": {
     "type": "questionWithChoice",
     "content": "Viande ou poisson ?",
-    "criteria": "viande",
+    "criteria": "",
     "left": "Viande",
     "right": "Poisson",
-    "nextStepYes": "question5",
+    "nextStepYes": "",
     "nextStepNo": ""
     },
 
