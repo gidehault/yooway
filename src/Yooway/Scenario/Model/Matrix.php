@@ -49,6 +49,7 @@ class Matrix
 			$list=$this->winelist->getList();
 		foreach($this->matrix as $id=>$case)
 		{
+
 			if($case=="" || ($case!="" && ($case->type=="wine" || $case->type=="blank"))) // s'il n'y a rien ou si c'est déjà du vin, on peut insérer
 			{	
 				$wine=array_shift($list);
@@ -68,22 +69,35 @@ class Matrix
 		$blank->type="blank";
 		return $blank;
 	}
-	/*
-	* modifie juste un pinard dans une case (la liste est nécessaire pour prendre le premier de la liste qui est non encore utilisé)
-	*/
-	public function pushWine($til,$list="") 
+
+	/**
+	 * modifie juste un pinard dans une case (la liste est nécessaire pour prendre le premier de la liste qui est non encore utilisé)
+     * Lorsque l'utilisateur n'aime pas la case deviend blank et potentielement en attente pour être rempli.
+     *
+     * @param string $til ID de la tuile en cours
+     * @param string $answer besoin pour supprimer le vin qu'on aime pas.
+     * @param array $list liste des vins
+     *
+     * @return mixed
+	 */
+	public function pushWine($til, $answer, $list=[])
 	{
-		if($list=="")
-			$list=$this->winelist->getList();
-		foreach($list as $wine)
-		{
-			if($this->findWine($wine->id)==null)
-			{
-				unset($wine->old);
-				$this->matrix[$til]=$wine;
-				return;
-			}
-		}
+	    if ($answer === "right"){
+            if(empty($list))
+                $list=$this->winelist->getList();
+            foreach($list as $wine)
+            {
+                if($this->findWine($wine->id)==null)
+                {
+                    unset($wine->old);
+                    $this->matrix[$til]=$wine;
+                    return;
+                }
+            }
+        } else {
+	        $this->matrix[$til] = Matrix::getBlank();
+        }
+
 	}
 	public function findWine($id)
 	{

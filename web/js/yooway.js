@@ -57,11 +57,11 @@ class Screen {
                         '<p>' + this.scenario[til].price + '</p>' +
                         '</div>' +
                         '<div class="answer like">' +
-                        '<img src="img/left.png" alt="to the left">' +
+                        '<img src="img/left.svg" alt="to the left">' +
                         "<div>Je n'aime pas</div>" +
                         "</div>" +
                         '<div class="answer dislike">' +
-                        '<img src="img/right.png" alt="to the right">' +
+                        '<img src="img/right.svg" alt="to the right">' +
                         "<div>J'aime</div>" +
                         "</div>" +
                         '</div>'
@@ -80,11 +80,11 @@ class Screen {
                         '<div id="type" class="' + this.scenario[til].type + '">' +
                         '<p>' + this.scenario[til].content + '</p>' +
                         '<div class="answer like">' +
-                        '<img src="img/left.png" alt="to the left">' +
+                        '<img src="img/left.svg" alt="to the left">' +
                         '<p>' + this.scenario[til].left + '</p>' +
                         '</div>' +
                         '<div class="answer dislike">' +
-                        '<img src="img/right.png" alt="to the right">' +
+                        '<img src="img/right.svg" alt="to the right">' +
                         '<p>' + this.scenario[til].right + '</p>' +
                         '</div>' +
                         '</div>'
@@ -97,11 +97,11 @@ class Screen {
                         '<div id="type" class="' + this.scenario[til].type + '">' +
                         '<p id="question">' + this.scenario[til].content + '</p>' +
                         '<div class="answer like">' +
-                        '<img src="img/left.png" alt="to the left">' +
+                        '<img src="img/left.svg" alt="to the left">' +
                         '<p>Non</p>' +
                         '</div>' +
                         '<div class="answer dislike">' +
-                        '<img src="img/right.png" alt="to the right">' +
+                        '<img src="img/right.svg" alt="to the right">' +
                         '<p>Oui</p>' +
                         '</div>' +
                         '</div>'

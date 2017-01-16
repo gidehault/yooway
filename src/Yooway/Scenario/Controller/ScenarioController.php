@@ -72,7 +72,7 @@ class ScenarioController
         if($type=="wine")
         {
             $matrix->winelist->removeWine($prodref);
-            $matrix->pushWine($tilId);
+            $matrix->pushWine($tilId, $answer);
         }
         if($type=="list")
         {
