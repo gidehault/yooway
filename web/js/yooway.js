@@ -55,7 +55,7 @@ class Screen {
                         '<img class="img-responsive" src="' + this.scenario[til].img + '" alt="illustration">' +
                         '<p> '+ this.scenario[til].nom +'</p>' +
                         '<div class="price">' +
-                        '<p class="label label-success">' + this.scenario[til].price + '</p>' +
+                        '<p class="label label-success yooway-label">' + this.scenario[til].price + '</p>' +
                         '</div>' +
                         '<div class="answer like">' +
                         '<img src="img/left.svg" alt="to the left">' +

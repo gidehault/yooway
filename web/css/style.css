@@ -89,17 +89,13 @@ On select design
 /**
  * Bulle prix
  */
-/*
-.price {
+
+.yooway-label {
     position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    left: 70%;
-    bottom: 80%;
-    background-color: #fddfdf;
+    right: 6%;
+    top: 10%;
 }
-*/
+
 
 /*.price p {
     vertical-align: middle;
