@@ -54,7 +54,7 @@ class Matrix
 			{	
 				$wine=array_shift($list);
 				if($wine=="")
-					$this->matrix[$id]=Matrix::getBlank();
+					$this->matrix[$id]=self::getBlank();
 				else if($case=="" || ($case!="" && $wine->id!=$case->id)) // pas la peine de le remplacer s'il y est déjà
 				{
 					unset($wine->old);
@@ -72,7 +72,7 @@ class Matrix
 
 	/**
 	 * modifie juste un pinard dans une case (la liste est nécessaire pour prendre le premier de la liste qui est non encore utilisé)
-     * Lorsque l'utilisateur n'aime pas la case deviend blank et potentielement en attente pour être rempli.
+     * Lorsque l'utilisateur n'aime pas, la case devient blank et potentielement en attente pour être rempli.
      *
      * @param string $til ID de la tuile en cours
      * @param string $answer besoin pour supprimer le vin qu'on aime pas.
@@ -94,8 +94,8 @@ class Matrix
                     return;
                 }
             }
-        } else {
-	        $this->matrix[$til] = Matrix::getBlank();
+        } else if (empty($list)){
+	        $this->matrix[$til] = self::getBlank();
         }
 
 	}

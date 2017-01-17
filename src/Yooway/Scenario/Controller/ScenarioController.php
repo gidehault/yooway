@@ -32,7 +32,7 @@ class ScenarioController
     {
 
         $session = $application['session'];
-        $session->start();
+
         // On commence par initialiser l'objet matrix à partir de la session
         if($request->get('init')==1)
         {
