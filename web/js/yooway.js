@@ -52,17 +52,16 @@ class Screen {
                     $('#' + til).addClass('til').html(
                         '<div id="' + this.scenario[til].id + '"></div>' +
                         '<div id="type" class="' + this.scenario[til].type + '">' +
-                        '<img  src="' + this.scenario[til].img + '" alt="illustration">' +
+                        '<img class="img-responsive" src="' + this.scenario[til].img + '" alt="illustration">' +
+                        '<p> '+ this.scenario[til].nom +'</p>' +
                         '<div class="price">' +
-                        '<p>' + this.scenario[til].price + '</p>' +
+                        '<p class="label label-success">' + this.scenario[til].price + '</p>' +
                         '</div>' +
                         '<div class="answer like">' +
                         '<img src="img/left.svg" alt="to the left">' +
-                        "<div>Je n'aime pas</div>" +
                         "</div>" +
                         '<div class="answer dislike">' +
                         '<img src="img/right.svg" alt="to the right">' +
-                        "<div>J'aime</div>" +
                         "</div>" +
                         '</div>'
                     ).css({top: 0, left: 0}).fadeIn('fast');
@@ -75,10 +74,10 @@ class Screen {
                     $('#' + til).addClass('til select').html('<ul id="list">' + li + ' </ul>')
                     break;
                 case 'questionWithChoice':
-                    $('#' + til).addClass('til yooway-question').html(
+                    $('#' + til).addClass('til').html(
                         '<div id="' + this.scenario[til].id + '"></div>' +
                         '<div id="type" class="' + this.scenario[til].type + '">' +
-                        '<p>' + this.scenario[til].content + '</p>' +
+                        '<p class="center-block">' + this.scenario[til].content + '</p>' +
                         '<div class="answer like">' +
                         '<img src="img/left.svg" alt="to the left">' +
                         '<p>' + this.scenario[til].left + '</p>' +
@@ -98,11 +97,9 @@ class Screen {
                         '<p id="question">' + this.scenario[til].content + '</p>' +
                         '<div class="answer like">' +
                         '<img src="img/left.svg" alt="to the left">' +
-                        '<p>Non</p>' +
                         '</div>' +
                         '<div class="answer dislike">' +
                         '<img src="img/right.svg" alt="to the right">' +
-                        '<p>Oui</p>' +
                         '</div>' +
                         '</div>'
                     ).css({top: 0, left: 0}).fadeIn('fast');
@@ -168,7 +165,7 @@ Connect.firstTime(function() {
 
 
 
-        //Bouton hard reset Reset
+       /* //Bouton hard reset Reset
         $('#row-3').after('<button id="reset">Reset</button>');
         $('#reset').click(function () {
             $.ajax({
@@ -179,7 +176,7 @@ Connect.firstTime(function() {
                     alert("Hard Reset effectué")
                 }
             })
-        });
+        });*/
 
         //Traitement du widget liste
         $('.list').click(function () {
@@ -220,12 +217,17 @@ Connect.firstTime(function() {
                 if (ui.originalPosition.left > ui.position.left) {
                     answer = 'left';
                     //add green color on the til
+                    if (!$(".questionWithChoice").hasClass("questionWithChoice")){
+                        move.coloration(tilId, 'left');
+                    }
 
-                    move.coloration(tilId, 'left');
 
                 } else {
                     answer = 'right';
-                    move.coloration(tilId, 'right');
+                    if (!$(".questionWithChoice").hasClass("questionWithChoice")){
+                        move.coloration(tilId, 'right');
+                    }
+
 
                 }
 
