@@ -91,11 +91,11 @@ On select design
  */
 
 .yooway-label {
+
     position: absolute;
     right: 6%;
     top: 10%;
 }
-
 
 /*.price p {
     vertical-align: middle;
@@ -112,8 +112,8 @@ Til question
     top: 30%;
 }
 
-.questionWithChoice p{
 
+.questionWithChoice p{
     position: absolute;
     top: 30%;
 }
